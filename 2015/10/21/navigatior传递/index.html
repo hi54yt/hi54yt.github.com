@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>navigatior传递 | Hexo</title>
+  <title>navigatior传递 | hi54yt&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="今早在写代码时报错：1message: Cannot read property &apos;push&apos; of undefined
 通过翻看react native文档，发现这么一段话：
@@ -12,12 +12,12 @@ A navigator is an object of navigation functions that a view can call. It is pas
 <meta property="og:type" content="article">
 <meta property="og:title" content="navigatior传递">
 <meta property="og:url" content="http://yoursite.com/2015/10/21/navigatior传递/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="hi54yt's blog">
 <meta property="og:description" content="今早在写代码时报错：1message: Cannot read property &apos;push&apos; of undefined
 通过翻看react native文档，发现这么一段话：
 
 A navigator is an object of navigation functions that a view can call. It is passed as a prop to any component">
-<meta property="og:updated_time" content="2015-12-08T02:49:26.000Z">
+<meta property="og:updated_time" content="2015-12-08T07:45:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="navigatior传递">
 <meta name="twitter:description" content="今早在写代码时报错：1message: Cannot read property &apos;push&apos; of undefined
@@ -25,7 +25,7 @@ A navigator is an object of navigation functions that a view can call. It is pas
 
 A navigator is an object of navigation functions that a view can call. It is passed as a prop to any component">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="hi54yt&#39;s blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -43,7 +43,7 @@ A navigator is an object of navigation functions that a view can call. It is pas
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">hi54yt&#39;s blog</a>
       </h1>
       
     </div>
@@ -104,14 +104,12 @@ A navigator is an object of navigation functions that a view can call. It is pas
 </blockquote>
 <p>原来iOS的navigator默认传递navigator对象到props参数里了。如果不是通过navigator渲染的页面，需要自己手动写<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator=&#123;<span class="keyword">this</span>.props.navigator&#125;</span><br></pre></td></tr></table></figure></p>
 <p>比如通过tab进入的页面很容易忘记传navigator：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ScrollableTabView</span> <span class="attribute">edgeHitWidth</span>=<span class="value">&#123;deviceWidth</span> / <span class="attribute">2</span>&#125;&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">Summary</span> <span class="attribute">tabLabel</span>=<span class="value">"概况"</span>  <span class="attribute">siteId</span>=<span class="value">&#123;this.props.siteId&#125;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">Zones</span> <span class="attribute">tabLabel</span>=<span class="value">"区域"</span> <span class="attribute">siteId</span>=<span class="value">&#123;this.props.siteId&#125;</span> <span class="attribute">onZoneSelected</span>=<span class="value">&#123;this._onZoneSelected&#125;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">Search</span> <span class="attribute">tabLabel</span>=<span class="value">"搜索"</span> <span class="attribute">siteId</span>=<span class="value">&#123;this.props.siteId&#125;</span> <span class="attribute">navigator</span>=<span class="value">&#123;this.props.navigator&#125;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ScrollableTabView</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<blockquote>
 <p><a href="http://facebook.github.io/react-native/docs/navigatorios.html#navigator" target="_blank" rel="external">http://facebook.github.io/react-native/docs/navigatorios.html#navigator</a></p>
-</blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/21/navigatior传递/" data-id="cihwseyr5000jjayl6khvcgnn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/21/navigatior传递/" data-id="cihx2xriy000mpzylxlonb3cl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -218,7 +216,7 @@ A navigator is an object of navigation functions that a view can call. It is pas
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015 John Doe<br>
+      &copy; 2015 hi54yt<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

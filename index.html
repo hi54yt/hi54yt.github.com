@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>hi54yt&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="hi54yt's blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="hi54yt's blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="hi54yt's blog">
 <meta name="twitter:description">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="hi54yt&#39;s blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -33,7 +33,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">hi54yt&#39;s blog</a>
       </h1>
       
     </div>
@@ -90,14 +90,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>在react native里如果用了fetch，需要处理error，否则遇到网络无法连接等问题时，ios程序会直接崩溃.解决办法是用catch error:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fetch(endpoint + <span class="string">'/sites/'</span> + <span class="keyword">this</span>.props.siteId + <span class="string">'/devices.json'</span>)</span><br><span class="line">  .then((response) =&gt; response.json())</span><br><span class="line">  .then((response) =&gt; &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;devices: response&#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch((error) =&gt; <span class="built_in">console</span>.log(error))</span><br><span class="line">  .done()</span><br></pre></td></tr></table></figure></p>
-<blockquote>
 <p><a href="https://facebook.github.io/react-native/docs/network.html#async" target="_blank" rel="external">https://facebook.github.io/react-native/docs/network.html#async</a></p>
-</blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/05/处理fetch-error/" data-id="cihwt5266000mjaylc2g612fj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/05/处理fetch-error/" data-id="cihx2xrik000cpzyla6f2sadx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -133,9 +131,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##更换npm源：</p>
-<p>###镜像使用方法（三种办法任意一种都能解决问题，建议使用第三种，将配置写死，下次用的时候配置还在）:</p>
-<p>1.通过config命令</p>
+        <h2 id="更换npm源：">更换npm源：</h2><h3 id="镜像使用方法（三种办法任意一种都能解决问题，建议使用第三种，将配置写死，下次用的时候配置还在）:">镜像使用方法（三种办法任意一种都能解决问题，建议使用第三种，将配置写死，下次用的时候配置还在）:</h3><p>1.通过config命令</p>
 <pre><code>npm config <span class="keyword">set</span> <span class="keyword">registry</span> https://<span class="keyword">registry</span>.npm.taobao.org 
 npm <span class="keyword">info</span> underscore （如果上面配置正确这个命令会有字符串response）
 </code></pre><p>2.命令行指定</p>
@@ -146,7 +142,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/03/国内开发各种翻墙配置/" data-id="cihwpdt2p0006isyl6gnsyipy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/03/国内开发各种翻墙配置/" data-id="cihx2xrio000fpzyly9dhy682" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gfw/">gfw</a></li></ul>
@@ -193,7 +189,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/02/git-stash和git-stash-pop/" data-id="cihwpn8in0004jaylfpxugd5e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/02/git-stash和git-stash-pop/" data-id="cihx2xrjh000wpzyl5ugfuj9p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -229,26 +225,17 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>增加git alias</p>
-<blockquote>
-<p>Here’s the pattern to make an alias using git config:</p>
-<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> <span class="keyword">alias</span>.<span class="keyword">alias</span> command</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>For example, I use git status a lot, so a shorter alias would be nice:</p>
-<blockquote>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">git</span> config --<span class="preprocessor">global</span> <span class="preprocessor">alias</span>.s status</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>This will add the following to your ~/.gitconfig file:</p>
-<blockquote>
-<figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">alias</span>]</span><br><span class="line">  <span class="title">s</span> = status</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
+        <p>增加git alias<br>Here’s the pattern to make an alias using git config:</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> <span class="keyword">alias</span>.<span class="keyword">alias</span> command</span><br></pre></td></tr></table></figure>
+<p>For example, I use git status a lot, so a shorter alias would be nice:<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">git</span> config --<span class="preprocessor">global</span> <span class="preprocessor">alias</span>.s status</span><br></pre></td></tr></table></figure></p>
+<p>This will add the following to your ~/.gitconfig file:<br><figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">alias</span>]</span><br><span class="line">  <span class="title">s</span> = status</span><br></pre></td></tr></table></figure></p>
 <p>Now if I type git s I get the same output as git status. Of course you can always open ~/.gitconfig in a text editor and add s = status manually under the [alias] section.</p>
 <p>from:<a href="http://oli.jp/2012/git-powerup/" target="_blank" rel="external">http://oli.jp/2012/git-powerup/</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/27/git-alias/" data-id="cihwsbdql0008jaylbwzz7w0t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/27/git-alias/" data-id="cihx2xrjo000zpzylg4z6ev4j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -293,14 +280,12 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
 </blockquote>
 <p>原来iOS的navigator默认传递navigator对象到props参数里了。如果不是通过navigator渲染的页面，需要自己手动写<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator=&#123;<span class="keyword">this</span>.props.navigator&#125;</span><br></pre></td></tr></table></figure></p>
 <p>比如通过tab进入的页面很容易忘记传navigator：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ScrollableTabView</span> <span class="attribute">edgeHitWidth</span>=<span class="value">&#123;deviceWidth</span> / <span class="attribute">2</span>&#125;&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">Summary</span> <span class="attribute">tabLabel</span>=<span class="value">"概况"</span>  <span class="attribute">siteId</span>=<span class="value">&#123;this.props.siteId&#125;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">Zones</span> <span class="attribute">tabLabel</span>=<span class="value">"区域"</span> <span class="attribute">siteId</span>=<span class="value">&#123;this.props.siteId&#125;</span> <span class="attribute">onZoneSelected</span>=<span class="value">&#123;this._onZoneSelected&#125;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">Search</span> <span class="attribute">tabLabel</span>=<span class="value">"搜索"</span> <span class="attribute">siteId</span>=<span class="value">&#123;this.props.siteId&#125;</span> <span class="attribute">navigator</span>=<span class="value">&#123;this.props.navigator&#125;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ScrollableTabView</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<blockquote>
 <p><a href="http://facebook.github.io/react-native/docs/navigatorios.html#navigator" target="_blank" rel="external">http://facebook.github.io/react-native/docs/navigatorios.html#navigator</a></p>
-</blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/21/navigatior传递/" data-id="cihwseyr5000jjayl6khvcgnn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/21/navigatior传递/" data-id="cihx2xriy000mpzylxlonb3cl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -336,33 +321,26 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#ios</p>
-<p>##调试</p>
-<ul>
-<li>iOS下react native真机调试的坑：<br>编译的时候报这个错误：_RCTSetLogFunction<br>需要进build settings关闭Dead code stripping选项<br>参考：</li>
+        <h1 id="ios">ios</h1><h2 id="调试">调试</h2><ul>
+<li>iOS下react native真机调试的坑：<br>编译的时候报这个错误：_RCTSetLogFunction<br>需要进build settings关闭Dead code stripping选项<br>参考：<a href="https://github.com/facebook/react-native/issues/2685" target="_blank" rel="external">https://github.com/facebook/react-native/issues/2685</a></li>
 </ul>
-<blockquote>
-<p><a href="https://github.com/facebook/react-native/issues/2685" target="_blank" rel="external">https://github.com/facebook/react-native/issues/2685</a></p>
-</blockquote>
-<p>###navigitor</p>
-<ul>
-<li>navigitor隐藏返回按钮，一般用在登录后的页面<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.props.navigator.push(&#123;</span><br><span class="line">  title: <span class="string">'站点'</span>,</span><br><span class="line">  component: Sites,</span><br><span class="line">  passProps: &#123; userId: userId &#125;,</span><br><span class="line">  leftButtonTitle: <span class="string">' '</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
+<h3 id="navigitor">navigitor</h3><ul>
+<li>navigitor隐藏返回按钮，一般用在登录后的页面</li>
 </ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.props.navigator.push(&#123;</span><br><span class="line">  title: <span class="string">'站点'</span>,</span><br><span class="line">  component: Sites,</span><br><span class="line">  passProps: &#123; userId: userId &#125;,</span><br><span class="line">  leftButtonTitle: <span class="string">' '</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <hr>
-<p>#android</p>
-<p>##调试</p>
-<ul>
-<li>虚拟机不要用android自带的，用这个：<a href="https://www.genymotion.com" target="_blank" rel="external">https://www.genymotion.com</a>，不要问我为什么，请叫我雷锋。</li>
-<li>找不到RCTRootView.h<br>一般是没有执行npm install,如果还不能解决,试试先清缓存<br>rm -rf node_modules<br>npm cache clear &amp;&amp; npm install</li>
+<h1 id="android">android</h1><h2 id="调试-1">调试</h2><ul>
+<li>虚拟机不要用android自带的<br>用这个：<a href="https://www.genymotion.com" target="_blank" rel="external">https://www.genymotion.com</a>，官方的虚拟机很慢，这个简直就是life saver。</li>
+<li>找不到RCTRootView.h<br>一般是没有执行npm install,如果还不能解决,试试先清缓存</li>
 </ul>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">rm</span> -rf node_modules</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">cache</span> <span class="keyword">clear</span> &amp;&amp; npm <span class="keyword">install</span></span></span><br></pre></td></tr></table></figure>
 <hr>
-<p>#Others</p>
-
+<h1 id="Others">Others</h1>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/15/React-Native各种坑/" data-id="cihwsddhi000djayl647ehegt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/15/React-Native各种坑/" data-id="cihx2xrs10076pzylvvrisa2v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坑/">坑</a></li></ul>
@@ -405,7 +383,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/06/18/菠菜炒鸡蛋/" data-id="cihwt7fnj000ojaylloj4l9yt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/06/18/菠菜炒鸡蛋/" data-id="cihx2xric0006pzylw2ilqb6v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -446,7 +424,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/20/新公司上班一个月/" data-id="cihwtl4k6000rjaylm8bm6pg6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/05/20/新公司上班一个月/" data-id="cihx2xrig0009pzyl6r0ppnv6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -487,7 +465,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2012/06/14/e5-8d-9a-e5-ae-a2-e6-90-ac-e5-ae-b6-e4-ba-86/" data-id="cihwpdt7j004sisyl6huicni0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2012/06/14/e5-8d-9a-e5-ae-a2-e6-90-ac-e5-ae-b6-e4-ba-86/" data-id="cihx2xrq40059pzyluik43jjz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -519,12 +497,16 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>姥爷过世一百天快到了，今天特别想念他，晚上睡不着，写这篇文章作为纪念。<br>爷爷是今年3月5日中午在医院离开我们的，那天正好是他老人家八十大寿。也许是早有先兆，舅舅那天早上还给爷爷理了胡子，帮爷爷把身上擦洗干净，换了身衣服。爷爷住院前，我一直在北京参加培训，这四个月我右眼皮一直在跳。年后，知道爷爷住院了，但不知道病情已经这么严重，因为爷爷这些年来一直有各种各样的老年病，经常吃药住院，但这次不一样，爸爸、妈妈一天从医院回来，说爷爷日子恐怕不多了，病危通知已经下来了，就看这两天能缓过来不，舅舅都在医院陪着爷爷。我突然意识到自己从上学到工作，真正回去看望爷爷的时间很少，那天晚上我是哭着睡着的，为爷爷祈祷。第二天去医院看望爷爷，爷爷的身体情况有所恢复，我悬着的心也放了下来，接下来连续几周，爷爷的病情有所好转，甚至妈妈都把爷爷出院要打的胰岛素都开好了，我也准备等爷爷出院了再去北京找工作。谁知道，爷爷突然又病情恶化。爷爷走的那天，我赶到病床前，头脑里一片空白，看着医生抢救意识已不太清醒的爷爷，我还在幼稚的祈祷死神不要带走他，然而爷爷还是走了，看了他最后一眼。爷爷走的时候很安详，我在病床前握着他的手，爷爷的手是温暖的，小时候经常拉爷爷的手，长大以后很少拉过爷爷的手了，我那时强忍的眼泪再也止不住了。那段时间，每天吃饭的时候总是想到爷爷，夜里想起和爷爷在一起的时候，总是闷在被子里撕心裂肺的哭。<br>小的时候，因为父母平时上班和我从小就不喜欢进幼儿园的原因，我上小学之前的这段童年，几乎是在爷爷家度过的，我是在爷爷的背上一天天长大的。爷爷是一个乐观幽默的人，喜欢和人开玩笑。我很小的时候，爷爷还拿电视里的化妆品广告当笑话逗我，那时候，爷爷每天背着我走街串巷，和村里的老人闲聊，老人也喜欢和爷爷聊天，经常到吃午饭时间才回去。爷爷年轻的时候喜欢喝酒，有一段时间，他每天都要带着我去村口的小卖铺打几两酒。我至今还能想起爷爷的中山装，记得爷爷和其他老人抽过的旱烟的味道、和村子里泥土的芳香，甚至记得太阳在爷爷肩膀上留下的阳光的味道，和小卖铺里的酒香，还有爷爷给我做的弓箭、木剑。<br>听家里人说，爷爷早些年，为了生计，外出学习木匠手艺，给人做了几年学徒，出师以后常年在外做木匠活，后来到国营单位工作，爷爷曾经说过他当年吃的是“百家饭”，我后来才知道这是什么意思，当时的木匠社会地位还是很高的，做活的人家要给木匠管饭。爷爷丧事的那天，村里一位和爷爷一块做过木匠活的90岁老人来祭奠爷爷，说爷爷手艺精湛，做的木匠活是数一数二的，即便是床背面看不到的木料，也从不偷工减料。爷爷当年给舅舅做的床，也有20个年头了，现在还很结实。<br>爷爷您一生为人正直、待人宽厚，您身上的这些品质，是留给我们最宝贵的财富！爷爷，我永远爱您！</p>
+        <p>姥爷过世一百天快到了，今天特别想念他，晚上睡不着，写这篇文章作为纪念。</p>
+<p>爷爷是今年3月5日中午在医院离开我们的，那天正好是他老人家八十大寿。也许是早有先兆，舅舅那天早上还给爷爷理了胡子，帮爷爷把身上擦洗干净，换了身衣服。爷爷住院前，我一直在北京参加培训，这四个月我右眼皮一直在跳。年后，知道爷爷住院了，但不知道病情已经这么严重，因为爷爷这些年来一直有各种各样的老年病，经常吃药住院，但这次不一样，爸爸、妈妈一天从医院回来，说爷爷日子恐怕不多了，病危通知已经下来了，就看这两天能缓过来不，舅舅都在医院陪着爷爷。我突然意识到自己从上学到工作，真正回去看望爷爷的时间很少，那天晚上我是哭着睡着的，为爷爷祈祷。第二天去医院看望爷爷，爷爷的身体情况有所恢复，我悬着的心也放了下来，接下来连续几周，爷爷的病情有所好转，甚至妈妈都把爷爷出院要打的胰岛素都开好了，我也准备等爷爷出院了再去北京找工作。谁知道，爷爷突然又病情恶化。爷爷走的那天，我赶到病床前，头脑里一片空白，看着医生抢救意识已不太清醒的爷爷，我还在幼稚的祈祷死神不要带走他，然而爷爷还是走了，看了他最后一眼。爷爷走的时候很安详，我在病床前握着他的手，爷爷的手是温暖的，小时候经常拉爷爷的手，长大以后很少拉过爷爷的手了，我那时强忍的眼泪再也止不住了。那段时间，每天吃饭的时候总是想到爷爷，夜里想起和爷爷在一起的时候，总是闷在被子里撕心裂肺的哭。</p>
+<p>小的时候，因为父母平时上班和我从小就不喜欢进幼儿园的原因，我上小学之前的这段童年，几乎是在爷爷家度过的，我是在爷爷的背上一天天长大的。爷爷是一个乐观幽默的人，喜欢和人开玩笑。我很小的时候，爷爷还拿电视里的化妆品广告当笑话逗我，那时候，爷爷每天背着我走街串巷，和村里的老人闲聊，老人也喜欢和爷爷聊天，经常到吃午饭时间才回去。爷爷年轻的时候喜欢喝酒，有一段时间，他每天都要带着我去村口的小卖铺打几两酒。我至今还能想起爷爷的中山装，记得爷爷和其他老人抽过的旱烟的味道、和村子里泥土的芳香，甚至记得太阳在爷爷肩膀上留下的阳光的味道，和小卖铺里的酒香，还有爷爷给我做的弓箭、木剑。</p>
+<p>听家里人说，爷爷早些年，为了生计，外出学习木匠手艺，给人做了几年学徒，出师以后常年在外做木匠活，后来到国营单位工作，爷爷曾经说过他当年吃的是“百家饭”，我后来才知道这是什么意思，当时的木匠社会地位还是很高的，做活的人家要给木匠管饭。爷爷丧事的那天，村里一位和爷爷一块做过木匠活的90岁老人来祭奠爷爷，说爷爷手艺精湛，做的木匠活是数一数二的，即便是床背面看不到的木料，也从不偷工减料。爷爷当年给舅舅做的床，也有20个年头了，现在还很结实。</p>
+<p>爷爷您一生为人正直、待人宽厚，您身上的这些品质，是留给我们最宝贵的财富！爷爷，我永远爱您！</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2012/06/02/grandpa/" data-id="cihwpdt36000lisyl17p2zzoe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2012/06/02/grandpa/" data-id="cihx2xrjf000vpzyl8tfn8dui" class="article-share-link">Share</a>
       
       
     </footer>
@@ -617,7 +599,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015 John Doe<br>
+      &copy; 2015 hi54yt<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

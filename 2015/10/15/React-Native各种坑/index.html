@@ -3,50 +3,38 @@
 <head>
   <meta charset="utf-8">
   
-  <title>React Native各种坑 | Hexo</title>
+  <title>React Native各种坑 | hi54yt&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#ios
-##调试
+  <meta name="description" content="ios调试
+iOS下react native真机调试的坑：编译的时候报这个错误：_RCTSetLogFunction需要进build settings关闭Dead code stripping选项参考：https://github.com/facebook/react-native/issues/2685
 
-iOS下react native真机调试的坑：编译的时候报这个错误：_RCTSetLogFunction需要进build settings关闭Dead code stripping选项参考：
+navigitor
+navigitor隐藏返回按钮，一般用在登录后的页面
 
-
-https://github.com/facebook/react-native/issues/2685
-
-###navigitor
-
-navigitor隐藏返回按钮，一般用在登录后">
+123456t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React Native各种坑">
 <meta property="og:url" content="http://yoursite.com/2015/10/15/React-Native各种坑/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="#ios
-##调试
+<meta property="og:site_name" content="hi54yt's blog">
+<meta property="og:description" content="ios调试
+iOS下react native真机调试的坑：编译的时候报这个错误：_RCTSetLogFunction需要进build settings关闭Dead code stripping选项参考：https://github.com/facebook/react-native/issues/2685
 
-iOS下react native真机调试的坑：编译的时候报这个错误：_RCTSetLogFunction需要进build settings关闭Dead code stripping选项参考：
+navigitor
+navigitor隐藏返回按钮，一般用在登录后的页面
 
-
-https://github.com/facebook/react-native/issues/2685
-
-###navigitor
-
-navigitor隐藏返回按钮，一般用在登录后">
-<meta property="og:updated_time" content="2015-12-08T02:47:50.000Z">
+123456t">
+<meta property="og:updated_time" content="2015-12-08T07:50:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Native各种坑">
-<meta name="twitter:description" content="#ios
-##调试
+<meta name="twitter:description" content="ios调试
+iOS下react native真机调试的坑：编译的时候报这个错误：_RCTSetLogFunction需要进build settings关闭Dead code stripping选项参考：https://github.com/facebook/react-native/issues/2685
 
-iOS下react native真机调试的坑：编译的时候报这个错误：_RCTSetLogFunction需要进build settings关闭Dead code stripping选项参考：
+navigitor
+navigitor隐藏返回按钮，一般用在登录后的页面
 
-
-https://github.com/facebook/react-native/issues/2685
-
-###navigitor
-
-navigitor隐藏返回按钮，一般用在登录后">
+123456t">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="hi54yt&#39;s blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -64,7 +52,7 @@ navigitor隐藏返回按钮，一般用在登录后">
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">hi54yt&#39;s blog</a>
       </h1>
       
     </div>
@@ -118,33 +106,26 @@ navigitor隐藏返回按钮，一般用在登录后">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#ios</p>
-<p>##调试</p>
-<ul>
-<li>iOS下react native真机调试的坑：<br>编译的时候报这个错误：_RCTSetLogFunction<br>需要进build settings关闭Dead code stripping选项<br>参考：</li>
+        <h1 id="ios">ios</h1><h2 id="调试">调试</h2><ul>
+<li>iOS下react native真机调试的坑：<br>编译的时候报这个错误：_RCTSetLogFunction<br>需要进build settings关闭Dead code stripping选项<br>参考：<a href="https://github.com/facebook/react-native/issues/2685" target="_blank" rel="external">https://github.com/facebook/react-native/issues/2685</a></li>
 </ul>
-<blockquote>
-<p><a href="https://github.com/facebook/react-native/issues/2685" target="_blank" rel="external">https://github.com/facebook/react-native/issues/2685</a></p>
-</blockquote>
-<p>###navigitor</p>
-<ul>
-<li>navigitor隐藏返回按钮，一般用在登录后的页面<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.props.navigator.push(&#123;</span><br><span class="line">  title: <span class="string">'站点'</span>,</span><br><span class="line">  component: Sites,</span><br><span class="line">  passProps: &#123; userId: userId &#125;,</span><br><span class="line">  leftButtonTitle: <span class="string">' '</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
+<h3 id="navigitor">navigitor</h3><ul>
+<li>navigitor隐藏返回按钮，一般用在登录后的页面</li>
 </ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.props.navigator.push(&#123;</span><br><span class="line">  title: <span class="string">'站点'</span>,</span><br><span class="line">  component: Sites,</span><br><span class="line">  passProps: &#123; userId: userId &#125;,</span><br><span class="line">  leftButtonTitle: <span class="string">' '</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <hr>
-<p>#android</p>
-<p>##调试</p>
-<ul>
-<li>虚拟机不要用android自带的，用这个：<a href="https://www.genymotion.com" target="_blank" rel="external">https://www.genymotion.com</a>，不要问我为什么，请叫我雷锋。</li>
-<li>找不到RCTRootView.h<br>一般是没有执行npm install,如果还不能解决,试试先清缓存<br>rm -rf node_modules<br>npm cache clear &amp;&amp; npm install</li>
+<h1 id="android">android</h1><h2 id="调试-1">调试</h2><ul>
+<li>虚拟机不要用android自带的<br>用这个：<a href="https://www.genymotion.com" target="_blank" rel="external">https://www.genymotion.com</a>，官方的虚拟机很慢，这个简直就是life saver。</li>
+<li>找不到RCTRootView.h<br>一般是没有执行npm install,如果还不能解决,试试先清缓存</li>
 </ul>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">rm</span> -rf node_modules</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">cache</span> <span class="keyword">clear</span> &amp;&amp; npm <span class="keyword">install</span></span></span><br></pre></td></tr></table></figure>
 <hr>
-<p>#Others</p>
-
+<h1 id="Others">Others</h1>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/15/React-Native各种坑/" data-id="cihwsddhi000djayl647ehegt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/15/React-Native各种坑/" data-id="cihx2xrs10076pzylvvrisa2v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坑/">坑</a></li></ul>
@@ -253,7 +234,7 @@ navigitor隐藏返回按钮，一般用在登录后">
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015 John Doe<br>
+      &copy; 2015 hi54yt<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
