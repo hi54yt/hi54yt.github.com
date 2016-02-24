@@ -85,10 +85,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>将shapefile导入postgis（以公司四楼五楼路径为例）<br>导入四楼路径规划图，命名为yz_network_lines_04：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ogr2ogr <span class="operator">-a</span>_srs EPSG:<span class="number">3857</span> -lco <span class="string">"SCHEMA=public"</span> -lco <span class="string">"COLUMN_TYPES=type=varchar,type_id=integer"</span> -nlt MULTILINESTRING -nln yz_network_lines_04 <span class="operator">-f</span> PostgreSQL <span class="string">"PG:host=localhost port=5432 user=sniffer dbname=camus_development"</span> yz_network_lines_04.shp</span><br></pre></td></tr></table></figure></p>
-<p>导入五楼路径规划图，命名为yz_network_lines_05：</p>
+        <p>将shapefile导入postgis（以公司四楼五楼路径为例）<br>导入四楼路径规划图，命名为yz_network_lines_04，在命令行中执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ogr2ogr <span class="operator">-a</span>_srs EPSG:<span class="number">3857</span> -lco <span class="string">"SCHEMA=public"</span> -lco <span class="string">"COLUMN_TYPES=type=varchar,type_id=integer"</span> -nlt MULTILINESTRING -nln yz_network_lines_04 <span class="operator">-f</span> PostgreSQL <span class="string">"PG:host=localhost port=5432 user=sniffer dbname=camus_development"</span> yz_network_lines_04.shp</span><br></pre></td></tr></table></figure></p>
+<p>导入五楼路径规划图，命名为yz_network_lines_05，在命令行中执行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ogr2ogr <span class="operator">-a</span>_srs EPSG:<span class="number">3857</span> -lco <span class="string">"SCHEMA=public"</span> -lco <span class="string">"COLUMN_TYPES=type=varchar,type_id=integer"</span> -nlt MULTILINESTRING -nln yz_network_lines_05 <span class="operator">-f</span> PostgreSQL <span class="string">"PG:host=localhost port=5432 user=sniffer dbname=camus_development"</span> yz_network_lines_05.shp</span><br></pre></td></tr></table></figure>
-<p>添加pgrouting所需的字段:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">public</span>.yz_network_lines_04 <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> <span class="keyword">source</span> <span class="built_in">INTEGER</span>;</span></span><br><span class="line"><span class="operator"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">public</span>.yz_network_lines_04 <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> target <span class="built_in">INTEGER</span>;</span></span><br><span class="line"><span class="operator"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">public</span>.yz_network_lines_04 <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> <span class="keyword">cost</span> <span class="keyword">DOUBLE</span> <span class="keyword">PRECISION</span>;</span></span><br><span class="line"><span class="operator"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">public</span>.yz_network_lines_04 <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> <span class="keyword">length</span> <span class="keyword">DOUBLE</span> <span class="keyword">PRECISION</span>;</span></span><br><span class="line"><span class="operator"><span class="keyword">UPDATE</span> <span class="keyword">public</span>.yz_network_lines_04 <span class="keyword">set</span> <span class="keyword">length</span> = ST_Length(wkb_geometry);</span></span><br></pre></td></tr></table></figure></p>
+<p>添加pgrouting所需的字段，在pgAdmin或者psql中执行:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">public</span>.yz_network_lines_04 <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> <span class="keyword">source</span> <span class="built_in">INTEGER</span>;</span></span><br><span class="line"><span class="operator"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">public</span>.yz_network_lines_04 <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> target <span class="built_in">INTEGER</span>;</span></span><br><span class="line"><span class="operator"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">public</span>.yz_network_lines_04 <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> <span class="keyword">cost</span> <span class="keyword">DOUBLE</span> <span class="keyword">PRECISION</span>;</span></span><br><span class="line"><span class="operator"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">public</span>.yz_network_lines_04 <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> <span class="keyword">length</span> <span class="keyword">DOUBLE</span> <span class="keyword">PRECISION</span>;</span></span><br><span class="line"><span class="operator"><span class="keyword">UPDATE</span> <span class="keyword">public</span>.yz_network_lines_04 <span class="keyword">set</span> <span class="keyword">length</span> = ST_Length(wkb_geometry);</span></span><br></pre></td></tr></table></figure></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">public</span>.yz_network_lines_05 <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> <span class="keyword">source</span> <span class="built_in">INTEGER</span>;</span></span><br><span class="line"><span class="operator"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">public</span>.yz_network_lines_05 <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> target <span class="built_in">INTEGER</span>;</span></span><br><span class="line"><span class="operator"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">public</span>.yz_network_lines_05 <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> <span class="keyword">cost</span> <span class="keyword">DOUBLE</span> <span class="keyword">PRECISION</span>;</span></span><br><span class="line"><span class="operator"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">public</span>.yz_network_lines_05 <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> <span class="keyword">length</span> <span class="keyword">DOUBLE</span> <span class="keyword">PRECISION</span>;</span></span><br><span class="line"><span class="operator"><span class="keyword">UPDATE</span> <span class="keyword">public</span>.yz_network_lines_05 <span class="keyword">set</span> <span class="keyword">length</span> = ST_Length(wkb_geometry);</span></span><br></pre></td></tr></table></figure>
 <p>生成pgrouting所需的函数（按顺序执行）:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psql -U username <span class="operator">-d</span> py_geoan_cb <span class="operator">-a</span> <span class="operator">-f</span> pgr_pointtoid3d.sql</span><br></pre></td></tr></table></figure>
@@ -103,7 +103,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/25/室内地图导入postgis/" data-id="cikq82l01000czqylttdpwo8w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/25/室内地图导入postgis/" data-id="cil0io6ni000cncylcz105azm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gis-室内地图/">gis 室内地图</a></li></ul>
@@ -147,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/05/处理fetch-error/" data-id="cikq82l05000fzqyliyefi631" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/05/处理fetch-error/" data-id="cil0io6nl000fncylsu2cfoch" class="article-share-link">Share</a>
       
       
     </footer>
@@ -194,7 +194,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/03/国内开发各种翻墙配置/" data-id="cikq82l09000izqylqvin9kbx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/03/国内开发各种翻墙配置/" data-id="cil0io6no000incylp4npk38c" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gfw/">gfw</a></li></ul>
@@ -241,7 +241,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/02/git-stash和git-stash-pop/" data-id="cikq82l0u000zzqylhu4pc7x6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/02/git-stash和git-stash-pop/" data-id="cil0io6oc000zncylz1r7lt8u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -287,7 +287,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/27/git-alias/" data-id="cikq82l0y0012zqyljiodiyfr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/27/git-alias/" data-id="cil0io6oh0012ncyl38suvrnz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -337,7 +337,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/21/navigatior传递/" data-id="cikq82l0i000pzqyljudsdvfv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/21/navigatior传递/" data-id="cil0io6nx000pncyl8ybla857" class="article-share-link">Share</a>
       
       
     </footer>
@@ -392,7 +392,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/15/React-Native各种坑/" data-id="cikq82l730079zqylj0da2b3t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/15/React-Native各种坑/" data-id="cil0io6u90079ncylef1jy79a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坑/">坑</a></li></ul>
@@ -435,7 +435,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/06/18/菠菜炒鸡蛋/" data-id="cikq82kzv0006zqyli69xhhee" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/06/18/菠菜炒鸡蛋/" data-id="cil0io6na0006ncylc0ckmiz7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -476,7 +476,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/20/新公司上班一个月/" data-id="cikq82kzz0009zqylet6ow7bx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/05/20/新公司上班一个月/" data-id="cil0io6ne0009ncylnnyeja0x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -517,7 +517,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2012/06/14/e5-8d-9a-e5-ae-a2-e6-90-ac-e5-ae-b6-e4-ba-86/" data-id="cikq82l57005czqyltqhtsmdd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2012/06/14/e5-8d-9a-e5-ae-a2-e6-90-ac-e5-ae-b6-e4-ba-86/" data-id="cil0io6sn005cncylg6z3937a" class="article-share-link">Share</a>
       
       
     </footer>
