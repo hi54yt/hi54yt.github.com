@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="sniffer's blog">
 <meta property="og:description" content="在开发ionic过程中，会遇到各种报错，尤其是新添加了cordova的plugin后，很容易因为依赖问题build不通过，一般采取重装plugin和platform来解决：
 123456sudo npm update -g cordovasudo npm update -g ionicrm -rf plugins/rm -rf platforms/ionic platform add iosion">
-<meta property="og:updated_time" content="2016-03-07T02:46:19.000Z">
+<meta property="og:updated_time" content="2016-03-09T05:45:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ionic-cheatsheet">
 <meta name="twitter:description" content="在开发ionic过程中，会遇到各种报错，尤其是新添加了cordova的plugin后，很容易因为依赖问题build不通过，一般采取重装plugin和platform来解决：
@@ -91,12 +91,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在开发ionic过程中，会遇到各种报错，尤其是新添加了cordova的plugin后，很容易因为依赖问题build不通过，一般采取重装plugin和platform来解决：</p>
+        <p>在开发ionic过程中，会遇到各种报错，尤其是新添加了cordova的plugin后，很容易因为依赖问题build不通过，一般采取<strong>重装plugin和platform</strong>来解决：</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo npm <span class="keyword">update</span> -<span class="keyword">g</span> cordova</span><br><span class="line">sudo npm <span class="keyword">update</span> -<span class="keyword">g</span> ionic</span><br><span class="line"><span class="keyword">rm</span> -rf plugins/</span><br><span class="line"><span class="keyword">rm</span> -rf platforms/</span><br><span class="line">ionic platform add ios</span><br><span class="line">ionic <span class="keyword">run</span> ios</span><br></pre></td></tr></table></figure>
+<p>安装plugin的时候，如果不想cordova plugin add xxx，而是<strong>一次安装所有的plugin</strong>：</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic <span class="keyword">state</span> reset</span><br></pre></td></tr></table></figure>
+<p>ref: <a href="https://forum.ionicframework.com/t/how-to-install-all-my-codrova-plugins-listed-in-package-json/21328" target="_blank" rel="external">https://forum.ionicframework.com/t/how-to-install-all-my-codrova-plugins-listed-in-package-json/21328</a></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/07/ionic-cheatsheet/" data-id="cilj3xx0v000q4nyl1x0ne29y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/07/ionic-cheatsheet/" data-id="cilkimyfa000tzjyls5s9rlii" class="article-share-link">Share</a>
       
       
     </footer>
@@ -115,7 +119,7 @@
     </a>
   
   
-    <a href="/2016/03/01/fuck-your-mac-up/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/03/01/mac-cheatsheet/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">打造顺手的开发环境</div>
     </a>
@@ -180,7 +184,7 @@
           </li>
         
           <li>
-            <a href="/2016/03/01/fuck-your-mac-up/">打造顺手的开发环境</a>
+            <a href="/2016/03/01/mac-cheatsheet/">打造顺手的开发环境</a>
           </li>
         
           <li>
