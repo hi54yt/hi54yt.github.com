@@ -63,6 +63,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-set-hexo-jquery-google-fonts-cdn" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/09/set-hexo-jquery-google-fonts-cdn/" class="article-date">
+  <time datetime="2016-03-09T08:02:37.000Z" itemprop="datePublished">2016-03-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/hexo/">hexo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/09/set-hexo-jquery-google-fonts-cdn/">set-hexo-jquery-google-fonts-cdn</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>因为众所周知的原因，骄傲的中国人是不(wu)用(fa)访问ajax.googleapis.com和fonts.googleapis.com这两个网址的，所以jquery和google fonts会响应超时，严重影响我们的hexo博客的用户体验。解决方法是换成360提供的cdn,以hexo官方默认模版landscape为例：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">打开</span><br><span class="line">themes/landscape/layout/_partial/after-footer.ejs</span><br><span class="line">找到</span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">替换为</span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//ajax.useso.com/ajax/libs/jquery/2.0.3/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">打开</span><br><span class="line">themes/landscape/layout/_partial/head.ejs</span><br><span class="line">找到</span><br><span class="line">&lt;link href=<span class="string">"//fonts.googleapis.com/css?family=Source+Code+Pro"</span> rel=<span class="string">"stylesheet"</span> <span class="class"><span class="keyword">type</span></span>=<span class="string">"text/css"</span>&gt;</span><br><span class="line">替换为</span><br><span class="line">&lt;link href=<span class="string">"//fonts.useso.com/css?family=Source+Code+Pro"</span> rel=<span class="string">"stylesheet"</span> <span class="class"><span class="keyword">type</span></span>=<span class="string">"text/css"</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>ref: <a href="http://libs.useso.com/" target="_blank" rel="external">http://libs.useso.com/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/09/set-hexo-jquery-google-fonts-cdn/" data-id="cilkk6rwy000j7qyl73b7yjnn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-add-jvm-fonts" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/03/07/add-jvm-fonts/" class="article-date">
@@ -103,7 +146,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/07/add-jvm-fonts/" data-id="cilkjvye8006z3yylfqs9a22q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/07/add-jvm-fonts/" data-id="cilkk6s5d00727qyl6v42lyqv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -148,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/07/ionic-cheatsheet/" data-id="cilkjvy8h000t3yyl4gi1ujsw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/07/ionic-cheatsheet/" data-id="cilkk6rxf000w7qyliyx7s2y3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -202,7 +245,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/01/mac-cheatsheet/" data-id="cilkjvy8c000q3yylcpxfrr9d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/01/mac-cheatsheet/" data-id="cilkk6rxb000t7qylix3obt4s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -256,7 +299,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/25/室内地图导入postgis/" data-id="cilkjvy7y000b3yyls08jje42" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/25/室内地图导入postgis/" data-id="cilkk6rwq000b7qyl3w50ir13" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gis-室内地图/">gis 室内地图</a></li></ul>
@@ -300,7 +343,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/05/处理fetch-error/" data-id="cilkjvy82000g3yyldnsalf3m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/05/处理fetch-error/" data-id="cilkk6rwv000g7qylx3rdlvs9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -345,7 +388,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/02/git-stash和git-stash-pop/" data-id="cilkjvy8p000y3yyl51iubyug" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/02/git-stash和git-stash-pop/" data-id="cilkk6rxm00117qyl1noqh0hl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -393,7 +436,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/21/navigatior传递/" data-id="cilkjvy85000j3yylrxerd40u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/21/navigatior传递/" data-id="cilkk6rx1000m7qylulg591o0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -448,7 +491,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/15/React-Native各种坑/" data-id="cilkjvyea00713yyl9gl279u5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/15/React-Native各种坑/" data-id="cilkk6s5h00747qylrxazuu7g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坑/">坑</a></li></ul>
@@ -491,48 +534,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/06/18/菠菜炒鸡蛋/" data-id="cilkjvy7q00053yylk1eb4xsc" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-新公司上班一个月" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/05/20/新公司上班一个月/" class="article-date">
-  <time datetime="2015-05-20T12:09:00.000Z" itemprop="datePublished">2015-05-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/感想/">感想</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/20/新公司上班一个月/">新公司上班一个月</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>自从去年8月份辞职以后，在家开发囚徒健身，时隔8个月后，终于因为看牙费用超支，才决定找工作。正好前同事的公司招聘，便通过内推进了现在这个公司。因为公司之前的产品大致成型，所以开发任务不像创业公司那样繁重，所以我就有大量的时间研究拓展技术，如Rspec测试等，这总比我在家一个人时，容易进入技术的“舒适区”要好。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/20/新公司上班一个月/" data-id="cilkjvy7v00083yyl2ajykdcg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/06/18/菠菜炒鸡蛋/" data-id="cilkk6rwi00057qylh2hfqj5b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -555,7 +557,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/gis/">gis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ionic/">ionic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/厨艺/">厨艺</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感想/">感想</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/昔日归档/">昔日归档</a><span class="category-list-count">78</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/gis/">gis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ionic/">ionic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/厨艺/">厨艺</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感想/">感想</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/昔日归档/">昔日归档</a><span class="category-list-count">78</span></li></ul>
     </div>
   </div>
 
@@ -582,7 +584,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">November 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">July 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">January 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">September 2008</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/08/">August 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">July 2008</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">June 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">May 2008</a><span class="archive-list-count">17</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">November 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">July 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">January 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">September 2008</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/08/">August 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">July 2008</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">June 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">May 2008</a><span class="archive-list-count">17</span></li></ul>
     </div>
   </div>
 
@@ -592,6 +594,10 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/03/09/set-hexo-jquery-google-fonts-cdn/">set-hexo-jquery-google-fonts-cdn</a>
+          </li>
         
           <li>
             <a href="/2016/03/07/add-jvm-fonts/">解决geoserver中文label乱码问题</a>
@@ -607,10 +613,6 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
         
           <li>
             <a href="/2016/01/25/室内地图导入postgis/">室内地图导航路径导入</a>
-          </li>
-        
-          <li>
-            <a href="/2015/11/05/处理fetch-error/">处理fetch error</a>
           </li>
         
       </ul>
