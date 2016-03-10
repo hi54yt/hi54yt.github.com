@@ -13,7 +13,7 @@ Rails第一式招式：gem install时默认跳过ri、rdoc安装步骤：打开 
 <meta property="og:site_name" content="sniffer's blog">
 <meta property="og:description" content="本文适用于MAC操作系统，程序员的电脑就像职业车手的座驾，应该把开发环境应该调教到最佳状态。以下基于我常用的技术栈react native、rails、git，整理出该环境下的“武功秘籍”：
 Rails第一式招式：gem install时默认跳过ri、rdoc安装步骤：打开 ~/.gemrc，加入gem: –no-ri –no-rdoc心得：gem install默认会安装doc文件，十分浪费时间">
-<meta property="og:updated_time" content="2016-03-08T07:21:29.000Z">
+<meta property="og:updated_time" content="2016-03-10T02:53:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="打造顺手的开发环境">
 <meta name="twitter:description" content="本文适用于MAC操作系统，程序员的电脑就像职业车手的座驾，应该把开发环境应该调教到最佳状态。以下基于我常用的技术栈react native、rails、git，整理出该环境下的“武功秘籍”：
@@ -105,11 +105,13 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
 <p>This will add the following to your ~/.gitconfig file:<br><figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">alias</span>]</span><br><span class="line">  <span class="title">s</span> = status</span><br></pre></td></tr></table></figure></p>
 <p>Now if I type git s I get the same output as git status. Of course you can always open ~/.gitconfig in a text editor and add s = status manually under the [alias] section.</p>
 <p>ref:<a href="http://oli.jp/2012/git-powerup/" target="_blank" rel="external">http://oli.jp/2012/git-powerup/</a></p>
+<h1 id="SSH">SSH</h1><h2 id="第一式-3">第一式</h2><p>招收： 配置ssh config快速登录服务器<br>步骤：<br>打开~/.ssh/config，加入以下内容：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Host hubei</span><br><span class="line">    HostName <span class="number">192.168</span><span class="number">.40</span><span class="number">.11</span></span><br><span class="line">    User hbsb</span><br><span class="line">Host yzsjzx</span><br><span class="line">    HostName <span class="number">42.96</span><span class="number">.206</span><span class="number">.22</span></span><br><span class="line">    User wwwuser</span><br><span class="line">Host camus</span><br><span class="line">    HostName <span class="number">114.215</span><span class="number">.96</span><span class="number">.33</span></span><br><span class="line">    User wwwuser</span><br></pre></td></tr></table></figure></p>
+<p>以后可以这样登录服务器：ssh hubei</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/01/mac-cheatsheet/" data-id="cilknkt1d000ti9ylxta1wv4g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/01/mac-cheatsheet/" data-id="cilkk6rxb000t7qylix3obt4s" class="article-share-link">Share</a>
       
       
     </footer>
