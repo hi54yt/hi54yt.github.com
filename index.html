@@ -63,6 +63,93 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-正确配置geoserver标签label的姿势" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/22/正确配置geoserver标签label的姿势/" class="article-date">
+  <time datetime="2016-03-22T07:32:12.000Z" itemprop="datePublished">2016-03-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/gis/">gis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/22/正确配置geoserver标签label的姿势/">正确配置geoserver标签label的姿势</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>label是地图上不可或缺的元素，geoserver的label是在geoserver的style文件中配置的，以下是我生产环境中的label配置：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Rule</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="title">TextSymbolizer</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!--  配置显示label文字的属性，我这里是label --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">Label</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="title">ogc:PropertyName</span>&gt;</span>label<span class="tag">&lt;/<span class="title">ogc:PropertyName</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="title">Label</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">Font</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="title">CssParameter</span> <span class="attribute">name</span>=<span class="value">"font-size"</span>&gt;</span>12.0<span class="tag">&lt;/<span class="title">CssParameter</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="title">CssParameter</span> <span class="attribute">name</span>=<span class="value">"font-style"</span>&gt;</span>normal<span class="tag">&lt;/<span class="title">CssParameter</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="title">CssParameter</span> <span class="attribute">name</span>=<span class="value">"font-weight"</span>&gt;</span>bold<span class="tag">&lt;/<span class="title">CssParameter</span>&gt;</span>  </span><br><span class="line">   <span class="tag">&lt;/<span class="title">Font</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">Fill</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="title">CssParameter</span> <span class="attribute">name</span>=<span class="value">"fill"</span>&gt;</span>#990099<span class="tag">&lt;/<span class="title">CssParameter</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="title">Fill</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- 取消默认的label重复显示 --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">Geometry</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">ogc:Function</span> <span class="attribute">name</span>=<span class="value">"centroid"</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="title">ogc:PropertyName</span>&gt;</span>the_geom<span class="tag">&lt;/<span class="title">ogc:PropertyName</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">ogc:Function</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="title">Geometry</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- label旋转角度 --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">LabelPlacement</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="title">PointPlacement</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="title">Rotation</span>&gt;</span></span><br><span class="line">       45</span><br><span class="line">       <span class="tag">&lt;/<span class="title">Rotation</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="title">PointPlacement</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="title">LabelPlacement</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="title">TextSymbolizer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">Rule</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/22/正确配置geoserver标签label的姿势/" data-id="cim34p10b0008271a8zzyh7ka" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/室内地图/">室内地图</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-geoserver地图显示图标" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/22/geoserver地图显示图标/" class="article-date">
+  <time datetime="2016-03-22T06:05:39.000Z" itemprop="datePublished">2016-03-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/gis/">gis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/22/geoserver地图显示图标/">geoserver地图显示图标</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>geoserver地图上显示图标是常见的功能，比如一张室内地图上需要显示卫生间、电梯等图标。<br><img title="wms地图" alt="wms地图" class="class1" src="http://sniffer-blog.qiniudn.com/static/images/icon_on_map.png?imageView2/2/w/600"><br>根据网上的资料整理出以下步骤：<br>1.上传需要显示的图标到geoserver的styles目录下，一般生产环境下是这个目录：<br><code>/var/lib/tomcat7/webapps/geoserver/data/styles</code><br>2.配置地图的sld样式文件：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Rule</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">Name</span>&gt;</span><span class="tag">&lt;/<span class="title">Name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">ogc:Filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ogc:PropertyIsEqualTo</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">ogc:PropertyName</span>&gt;</span>type<span class="tag">&lt;/<span class="title">ogc:PropertyName</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">ogc:Literal</span>&gt;</span>toilet<span class="tag">&lt;/<span class="title">ogc:Literal</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">ogc:PropertyIsEqualTo</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">ogc:Filter</span>&gt;</span></span><br><span class="line"></span><br><span class="line"> <span class="tag">&lt;<span class="title">PointSymbolizer</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="title">Graphic</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">ExternalGraphic</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="title">OnlineResource</span> <span class="attribute">xlink:type</span>=<span class="value">"simple"</span> <span class="attribute">xlink:href</span>=<span class="value">"http://wms.smart-museum.cn/geoserver/styles/wc.png"</span> /&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="title">Format</span>&gt;</span>image/png<span class="tag">&lt;/<span class="title">Format</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">ExternalGraphic</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">Size</span>&gt;</span>20<span class="tag">&lt;/<span class="title">Size</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="title">Graphic</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">VendorOption</span> <span class="attribute">name</span>=<span class="value">"labelObstacle"</span>&gt;</span>true<span class="tag">&lt;/<span class="title">VendorOption</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="title">PointSymbolizer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">Rule</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>因为我们上传图片到styles目录，所以xlink:href这个属性可以配置成绝对路径<code>xlink:type=&quot;simple&quot; xlink:href=&quot;wc.png&quot;</code>，但是我的服务器上不知道什么原因就是不行，所以这里配置了绝对路径。以后查明了原因在更新。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/22/geoserver地图显示图标/" data-id="cim34p11o0018271awg0smrzd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/室内地图/">室内地图</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-set-hexo-jquery-google-fonts-cdn" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/03/09/set-hexo-jquery-google-fonts-cdn/" class="article-date">
@@ -96,7 +183,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/09/set-hexo-jquery-google-fonts-cdn/" data-id="ciln2qdvg000jdzyla0t7ls6o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/09/set-hexo-jquery-google-fonts-cdn/" data-id="cim34p10u000n271ax3h3qnvi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -132,7 +219,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>将geoserver部署到ubuntu的时候，遇到label显示中文乱码的问题，记录下解决过程：</p>
+        <p>将geoserver部署到ubuntu的时候，遇到label显示中文乱码的问题，一般这个问题都是因为ubuntu的jvm缺少中文字体造成的，记录下解决过程：</p>
 <p>进入j2sdk目录，比如/usr/lib/jvm/java-7-openjdk-amd64/jre/lib，创建fallback目录：</p>
 <pre><code>sudo <span class="built_in">mkdir</span> fonts/fallback
 </code></pre><p>拷贝字体文件到fallback目录</p>
@@ -146,7 +233,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/07/add-jvm-fonts/" data-id="ciln2qe2h0072dzylmgdo9pna" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/07/add-jvm-fonts/" data-id="cim34p16v0079271aw0otdnxw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -191,7 +278,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/07/ionic-cheatsheet/" data-id="ciln2qdw3000wdzylyjk4n0lf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/07/ionic-cheatsheet/" data-id="cim34p11d0010271acwug2zlr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -241,13 +328,14 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
 <p>This will add the following to your ~/.gitconfig file:<br><figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">alias</span>]</span><br><span class="line">  <span class="title">s</span> = status</span><br></pre></td></tr></table></figure></p>
 <p>Now if I type git s I get the same output as git status. Of course you can always open ~/.gitconfig in a text editor and add s = status manually under the [alias] section.</p>
 <p>ref:<a href="http://oli.jp/2012/git-powerup/" target="_blank" rel="external">http://oli.jp/2012/git-powerup/</a></p>
-<h1 id="SSH">SSH</h1><h2 id="第一式-3">第一式</h2><p>招收： 配置ssh config快速登录服务器<br>步骤：<br>打开~/.ssh/config，加入以下内容：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Host hubei</span><br><span class="line">    HostName <span class="number">192.168</span><span class="number">.40</span><span class="number">.11</span></span><br><span class="line">    User hbsb</span><br><span class="line">Host yzsjzx</span><br><span class="line">    HostName <span class="number">42.96</span><span class="number">.206</span><span class="number">.22</span></span><br><span class="line">    User wwwuser</span><br><span class="line">Host camus</span><br><span class="line">    HostName <span class="number">114.215</span><span class="number">.96</span><span class="number">.33</span></span><br><span class="line">    User wwwuser</span><br></pre></td></tr></table></figure></p>
+<h1 id="SSH">SSH</h1><h2 id="第一式-3">第一式</h2><p>招式： 配置ssh config快速登录服务器<br>步骤：<br>打开~/.ssh/config，加入以下内容：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Host hubei</span><br><span class="line">    HostName <span class="number">192.168</span><span class="number">.40</span><span class="number">.11</span></span><br><span class="line">    User hbsb</span><br><span class="line">Host yzsjzx</span><br><span class="line">    HostName <span class="number">42.96</span><span class="number">.206</span><span class="number">.22</span></span><br><span class="line">    User wwwuser</span><br><span class="line">Host camus</span><br><span class="line">    HostName <span class="number">114.215</span><span class="number">.96</span><span class="number">.33</span></span><br><span class="line">    User wwwuser</span><br></pre></td></tr></table></figure></p>
 <p>以后可以这样登录服务器：ssh hubei</p>
+<h1 id="其它">其它</h1><h2 id="第一式-4">第一式</h2><p>招式：禁用DS_Store<br>步骤：<br>在命令行中执行：<br>        defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true<br>删除系统中已经存在的DS_Store文件<br>        sudo find / -name “.DS_Store” -depth -exec rm {} \;<br>然后记得重启finder<br>        killall Finder<br>心得：<br>.DS_Store是Mac OS保存文件夹的自定义属性的隐藏文件，如文件的图标位置或背景色，相当于Windows的desktop.ini。这个文件经常会随着git提交到项目里，十分没必要。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/01/mac-cheatsheet/" data-id="ciln2qdvx000tdzyl6cy10zku" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/01/mac-cheatsheet/" data-id="cim34p119000x271awjcdwha9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -314,7 +402,7 @@ gem <span class="keyword">install</span> rgeo</span>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/25/室内地图导入postgis/" data-id="ciln2qdv6000bdzyltuureg9l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/25/室内地图导入postgis/" data-id="cim34p10n000g271abcdfcyka" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gis-室内地图/">gis 室内地图</a></li></ul>
@@ -358,7 +446,7 @@ gem <span class="keyword">install</span> rgeo</span>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/05/处理fetch-error/" data-id="ciln2qdva000gdzylajwd5h6r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/05/处理fetch-error/" data-id="cim34p10r000k271a9hg09dp0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -403,7 +491,7 @@ gem <span class="keyword">install</span> rgeo</span>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/02/git-stash和git-stash-pop/" data-id="ciln2qdwd0011dzylhn0j9uws" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/02/git-stash和git-stash-pop/" data-id="cim34p11l0015271agwiyns2g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -451,105 +539,7 @@ gem <span class="keyword">install</span> rgeo</span>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/21/navigatior传递/" data-id="ciln2qdvk000mdzylht8m5zhq" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-React-Native各种坑" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/15/React-Native各种坑/" class="article-date">
-  <time datetime="2015-10-15T03:20:00.000Z" itemprop="datePublished">2015-10-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ReactNative/">ReactNative</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/15/React-Native各种坑/">React Native各种坑</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="ios">ios</h1><h2 id="调试">调试</h2><ul>
-<li>iOS下react native真机调试的坑：<br>编译的时候报这个错误：_RCTSetLogFunction<br>需要进build settings关闭Dead code stripping选项<br>参考：<a href="https://github.com/facebook/react-native/issues/2685" target="_blank" rel="external">https://github.com/facebook/react-native/issues/2685</a></li>
-</ul>
-<h3 id="navigitor">navigitor</h3><ul>
-<li>navigitor隐藏返回按钮，一般用在登录后的页面</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.props.navigator.push(&#123;</span><br><span class="line">  title: <span class="string">'站点'</span>,</span><br><span class="line">  component: Sites,</span><br><span class="line">  passProps: &#123; userId: userId &#125;,</span><br><span class="line">  leftButtonTitle: <span class="string">' '</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="android">android</h1><h2 id="调试-1">调试</h2><ul>
-<li>虚拟机不要用android自带的<br>用这个：<a href="https://www.genymotion.com" target="_blank" rel="external">https://www.genymotion.com</a>，官方的虚拟机很慢，这个简直就是life saver。</li>
-<li>找不到RCTRootView.h<br>一般是没有执行npm install,如果还不能解决,试试先清缓存</li>
-</ul>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">rm</span> -rf node_modules</span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">cache</span> <span class="keyword">clear</span> &amp;&amp; npm <span class="keyword">install</span></span></span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="Others">Others</h1>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/15/React-Native各种坑/" data-id="ciln2qe2k0074dzylbkvqo175" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坑/">坑</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-菠菜炒鸡蛋" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/06/18/菠菜炒鸡蛋/" class="article-date">
-  <time datetime="2015-06-18T12:34:00.000Z" itemprop="datePublished">2015-06-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/厨艺/">厨艺</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/18/菠菜炒鸡蛋/">菠菜炒鸡蛋</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>第一次做，在下厨房查的做法：<br>1、烧一锅开水，把菠菜炝一下，主要目的是去除草酸，否则口感比较涩<br>2、打两个鸡蛋搅拌，油烧开，中火炒鸡蛋<br>3、菠菜空水后与鸡蛋一起炒熟即可<br>总结经验：<br>1、菠菜炝的时间短了，有点苦<br>2、盐放少了，应该放一勺盐<br>3、炒鸡蛋时不能放盐，否则鸡蛋太闲，菠菜没味</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/06/18/菠菜炒鸡蛋/" data-id="ciln2qdux0005dzyll2c54i3f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/21/navigatior传递/" data-id="cim34p10z000q271a098xi9ow" class="article-share-link">Share</a>
       
       
     </footer>
@@ -561,7 +551,7 @@ gem <span class="keyword">install</span> rgeo</span>
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -572,7 +562,7 @@ gem <span class="keyword">install</span> rgeo</span>
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/gis/">gis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ionic/">ionic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/厨艺/">厨艺</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感想/">感想</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/昔日归档/">昔日归档</a><span class="category-list-count">78</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/gis/">gis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ionic/">ionic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/厨艺/">厨艺</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感想/">感想</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/昔日归档/">昔日归档</a><span class="category-list-count">78</span></li></ul>
     </div>
   </div>
 
@@ -581,7 +571,7 @@ gem <span class="keyword">install</span> rgeo</span>
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/50元/">50元</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/605/">605</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/">MFC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gis-室内地图/">gis 室内地图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wolf/">wolf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书/">书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/事业/">事业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/做事/">做事</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/做人/">做人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/出力/">出力</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/出钱/">出钱</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/刘翔/">刘翔</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/创业/">创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/史玉柱/">史玉柱</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/地震/">地震</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多难兴邦/">多难兴邦</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/头七/">头七</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/忠告/">忠告</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/成功/">成功</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/救急不救穷/">救急不救穷</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机会/">机会</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机遇/">机遇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/校内/">校内</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/毕业/">毕业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/毛泽东-实践-认识/">毛泽东;实践;认识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/沉思录/">沉思录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/法律/">法律</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/清华/">清华</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/灾难/">灾难</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爱因斯坦/">爱因斯坦</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/狼/">狼</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用心/">用心</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电梯/">电梯</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网站/">网站</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/老汉/">老汉</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/职业/">职业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/补课/">补课</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/见义勇为/">见义勇为</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/角斗士/">角斗士</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/赚钱/">赚钱</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/50元/">50元</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/605/">605</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/">MFC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gis-室内地图/">gis 室内地图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wolf/">wolf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书/">书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/事业/">事业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/做事/">做事</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/做人/">做人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/出力/">出力</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/出钱/">出钱</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/刘翔/">刘翔</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/创业/">创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/史玉柱/">史玉柱</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/地震/">地震</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多难兴邦/">多难兴邦</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/头七/">头七</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/室内地图/">室内地图</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/忠告/">忠告</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/成功/">成功</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/救急不救穷/">救急不救穷</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机会/">机会</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机遇/">机遇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/校内/">校内</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/毕业/">毕业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/毛泽东-实践-认识/">毛泽东;实践;认识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/沉思录/">沉思录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/法律/">法律</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/清华/">清华</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/灾难/">灾难</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爱因斯坦/">爱因斯坦</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/狼/">狼</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用心/">用心</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电梯/">电梯</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网站/">网站</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/老汉/">老汉</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/职业/">职业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/补课/">补课</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/见义勇为/">见义勇为</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/角斗士/">角斗士</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/赚钱/">赚钱</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -590,7 +580,7 @@ gem <span class="keyword">install</span> rgeo</span>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/50元/" style="font-size: 10px;">50元</a> <a href="/tags/605/" style="font-size: 10px;">605</a> <a href="/tags/MFC/" style="font-size: 10px;">MFC</a> <a href="/tags/gis-室内地图/" style="font-size: 10px;">gis 室内地图</a> <a href="/tags/wolf/" style="font-size: 10px;">wolf</a> <a href="/tags/书/" style="font-size: 10px;">书</a> <a href="/tags/事业/" style="font-size: 10px;">事业</a> <a href="/tags/做事/" style="font-size: 10px;">做事</a> <a href="/tags/做人/" style="font-size: 10px;">做人</a> <a href="/tags/出力/" style="font-size: 10px;">出力</a> <a href="/tags/出钱/" style="font-size: 10px;">出钱</a> <a href="/tags/刘翔/" style="font-size: 10px;">刘翔</a> <a href="/tags/创业/" style="font-size: 10px;">创业</a> <a href="/tags/史玉柱/" style="font-size: 10px;">史玉柱</a> <a href="/tags/地震/" style="font-size: 20px;">地震</a> <a href="/tags/坑/" style="font-size: 10px;">坑</a> <a href="/tags/多难兴邦/" style="font-size: 15px;">多难兴邦</a> <a href="/tags/头七/" style="font-size: 10px;">头七</a> <a href="/tags/忠告/" style="font-size: 10px;">忠告</a> <a href="/tags/成功/" style="font-size: 10px;">成功</a> <a href="/tags/救急不救穷/" style="font-size: 10px;">救急不救穷</a> <a href="/tags/机会/" style="font-size: 10px;">机会</a> <a href="/tags/机遇/" style="font-size: 10px;">机遇</a> <a href="/tags/校内/" style="font-size: 10px;">校内</a> <a href="/tags/毕业/" style="font-size: 10px;">毕业</a> <a href="/tags/毛泽东-实践-认识/" style="font-size: 10px;">毛泽东;实践;认识</a> <a href="/tags/沉思录/" style="font-size: 10px;">沉思录</a> <a href="/tags/法律/" style="font-size: 15px;">法律</a> <a href="/tags/清华/" style="font-size: 10px;">清华</a> <a href="/tags/灾难/" style="font-size: 10px;">灾难</a> <a href="/tags/爱因斯坦/" style="font-size: 10px;">爱因斯坦</a> <a href="/tags/狼/" style="font-size: 10px;">狼</a> <a href="/tags/用心/" style="font-size: 10px;">用心</a> <a href="/tags/电梯/" style="font-size: 10px;">电梯</a> <a href="/tags/网站/" style="font-size: 10px;">网站</a> <a href="/tags/老汉/" style="font-size: 10px;">老汉</a> <a href="/tags/职业/" style="font-size: 10px;">职业</a> <a href="/tags/补课/" style="font-size: 10px;">补课</a> <a href="/tags/见义勇为/" style="font-size: 10px;">见义勇为</a> <a href="/tags/角斗士/" style="font-size: 10px;">角斗士</a> <a href="/tags/赚钱/" style="font-size: 10px;">赚钱</a>
+      <a href="/tags/50元/" style="font-size: 10px;">50元</a> <a href="/tags/605/" style="font-size: 10px;">605</a> <a href="/tags/MFC/" style="font-size: 10px;">MFC</a> <a href="/tags/gis-室内地图/" style="font-size: 10px;">gis 室内地图</a> <a href="/tags/wolf/" style="font-size: 10px;">wolf</a> <a href="/tags/书/" style="font-size: 10px;">书</a> <a href="/tags/事业/" style="font-size: 10px;">事业</a> <a href="/tags/做事/" style="font-size: 10px;">做事</a> <a href="/tags/做人/" style="font-size: 10px;">做人</a> <a href="/tags/出力/" style="font-size: 10px;">出力</a> <a href="/tags/出钱/" style="font-size: 10px;">出钱</a> <a href="/tags/刘翔/" style="font-size: 10px;">刘翔</a> <a href="/tags/创业/" style="font-size: 10px;">创业</a> <a href="/tags/史玉柱/" style="font-size: 10px;">史玉柱</a> <a href="/tags/地震/" style="font-size: 20px;">地震</a> <a href="/tags/坑/" style="font-size: 10px;">坑</a> <a href="/tags/多难兴邦/" style="font-size: 15px;">多难兴邦</a> <a href="/tags/头七/" style="font-size: 10px;">头七</a> <a href="/tags/室内地图/" style="font-size: 15px;">室内地图</a> <a href="/tags/忠告/" style="font-size: 10px;">忠告</a> <a href="/tags/成功/" style="font-size: 10px;">成功</a> <a href="/tags/救急不救穷/" style="font-size: 10px;">救急不救穷</a> <a href="/tags/机会/" style="font-size: 10px;">机会</a> <a href="/tags/机遇/" style="font-size: 10px;">机遇</a> <a href="/tags/校内/" style="font-size: 10px;">校内</a> <a href="/tags/毕业/" style="font-size: 10px;">毕业</a> <a href="/tags/毛泽东-实践-认识/" style="font-size: 10px;">毛泽东;实践;认识</a> <a href="/tags/沉思录/" style="font-size: 10px;">沉思录</a> <a href="/tags/法律/" style="font-size: 15px;">法律</a> <a href="/tags/清华/" style="font-size: 10px;">清华</a> <a href="/tags/灾难/" style="font-size: 10px;">灾难</a> <a href="/tags/爱因斯坦/" style="font-size: 10px;">爱因斯坦</a> <a href="/tags/狼/" style="font-size: 10px;">狼</a> <a href="/tags/用心/" style="font-size: 10px;">用心</a> <a href="/tags/电梯/" style="font-size: 10px;">电梯</a> <a href="/tags/网站/" style="font-size: 10px;">网站</a> <a href="/tags/老汉/" style="font-size: 10px;">老汉</a> <a href="/tags/职业/" style="font-size: 10px;">职业</a> <a href="/tags/补课/" style="font-size: 10px;">补课</a> <a href="/tags/见义勇为/" style="font-size: 10px;">见义勇为</a> <a href="/tags/角斗士/" style="font-size: 10px;">角斗士</a> <a href="/tags/赚钱/" style="font-size: 10px;">赚钱</a>
     </div>
   </div>
 
@@ -599,7 +589,7 @@ gem <span class="keyword">install</span> rgeo</span>
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">November 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">July 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">January 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">September 2008</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/08/">August 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">July 2008</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">June 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">May 2008</a><span class="archive-list-count">17</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">November 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">July 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">January 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">September 2008</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/08/">August 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">July 2008</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">June 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">May 2008</a><span class="archive-list-count">17</span></li></ul>
     </div>
   </div>
 
@@ -611,6 +601,14 @@ gem <span class="keyword">install</span> rgeo</span>
       <ul>
         
           <li>
+            <a href="/2016/03/22/正确配置geoserver标签label的姿势/">正确配置geoserver标签label的姿势</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/22/geoserver地图显示图标/">geoserver地图显示图标</a>
+          </li>
+        
+          <li>
             <a href="/2016/03/09/set-hexo-jquery-google-fonts-cdn/">解决hexo的jquery和fonts被墙</a>
           </li>
         
@@ -620,14 +618,6 @@ gem <span class="keyword">install</span> rgeo</span>
         
           <li>
             <a href="/2016/03/07/ionic-cheatsheet/">ionic-cheatsheet</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/01/mac-cheatsheet/">打造顺手的开发环境</a>
-          </li>
-        
-          <li>
-            <a href="/2016/01/25/室内地图导入postgis/">室内地图导航路径导入</a>
           </li>
         
       </ul>
