@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>rails ajax tips | sniffer&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前不久在做一个rails项目时，要实现一个ajax刷新页面效果，rails能收到发来的请求，但是总是去渲染html页面，而不是渲染对应的js.erb文件，而这个controller里的action需要同时响应html和ajax请求。
+那么rails是怎么和ajax结合的呢，首先要了解什么是SJR（Server-generated JavaScript Responses），这个可以看DHH大神的文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rails ajax tips">
+<meta property="og:url" content="http://yoursite.com/2016/04/20/rails-ajax-tips/index.html">
+<meta property="og:site_name" content="sniffer's blog">
+<meta property="og:description" content="前不久在做一个rails项目时，要实现一个ajax刷新页面效果，rails能收到发来的请求，但是总是去渲染html页面，而不是渲染对应的js.erb文件，而这个controller里的action需要同时响应html和ajax请求。
+那么rails是怎么和ajax结合的呢，首先要了解什么是SJR（Server-generated JavaScript Responses），这个可以看DHH大神的文">
+<meta property="og:updated_time" content="2016-04-20T02:15:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="rails ajax tips">
+<meta name="twitter:description" content="前不久在做一个rails项目时，要实现一个ajax刷新页面效果，rails能收到发来的请求，但是总是去渲染html页面，而不是渲染对应的js.erb文件，而这个controller里的action需要同时响应html和ajax请求。
+那么rails是怎么和ajax结合的呢，首先要了解什么是SJR（Server-generated JavaScript Responses），这个可以看DHH大神的文">
+  
+    <link rel="alternative" href="/atom.xml" title="sniffer&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">sniffer&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/links">Links</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-rails-ajax-tips" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/20/rails-ajax-tips/" class="article-date">
+  <time datetime="2016-04-20T01:23:26.000Z" itemprop="datePublished">2016-04-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/rails/">rails</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      rails ajax tips
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前不久在做一个rails项目时，要实现一个ajax刷新页面效果，rails能收到发来的请求，但是总是去渲染html页面，而不是渲染对应的js.erb文件，而这个controller里的action需要同时响应html和ajax请求。</p>
+<p>那么rails是怎么和ajax结合的呢，首先要了解什么是SJR（Server-generated JavaScript Responses），这个可以看DHH大神的文章，翻译版：<a href="https://ruby-china.org/topics/16132" target="_blank" rel="external">https://ruby-china.org/topics/16132</a></p>
+<p>首先传统的rails ajax方案是给link或者form加一个:remote =&gt; true, 这样做会由jquery-ujs对链接进行劫持把普通请求变成ajax请求，其中很重要的一条就是增加一个datatype参数，然后在request请求中会带上Accept参数，rails会根据Accept进行响应分发。比如datatype为script，则响应js文件，datatype为json，则响应json文件。jquery-ujs默认的datatype为script。<br>这样做的话，那么下面的请求都会正常响应：<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="variable">%=</span> link_to <span class="string">'index'</span>, root_url <span class="variable">%&gt;</span> <span class="comment">//返回html</span></span><br><span class="line">&lt;<span class="variable">%=</span> link_to <span class="string">'index'</span>, root_url, :remote =&gt; true <span class="variable">%&gt;</span> <span class="comment">//返回js</span></span><br></pre></td></tr></table></figure></p>
+<p>你还可以指定请求类型：<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= link_to <span class="string">'index'</span>, root_url, :remote =&gt; <span class="keyword">true</span>, <span class="string">"data-type"</span> =&gt; :json %&gt; <span class="comment">//返回json</span></span><br></pre></td></tr></table></figure></p>
+<p>如果自己写ajax请求的话要注意带上dataType，以保证rails正确响应你的请求：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  method: method,</span><br><span class="line">  url: action,</span><br><span class="line">  data: data,</span><br><span class="line">  dataType: <span class="string">'script'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>还有一种方案是在url中带上后缀，利用route将format传入action：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  method: method,</span><br><span class="line">  url: http:<span class="comment">//127.0.0.1:3000/index.js,</span></span><br><span class="line">  data: data,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>action会根据format进行响应：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">respond_to <span class="built_in">do</span> |<span class="built_in">format</span>|</span><br><span class="line">    <span class="built_in">format</span>.html</span><br><span class="line">    <span class="built_in">format</span>.js &#123;&#125;<span class="comment"> //返回js</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<p>参考：<br><a href="http://tech.thereq.com/post/17243732577/rails-3-using-linkto-remote-true-with-jquery" target="_blank" rel="external">http://tech.thereq.com/post/17243732577/rails-3-using-linkto-remote-true-with-jquery</a><br><a href="http://roseweixel.github.io/blog/2015/07/05/integrating-ajax-and-rails-a-simple-todo-list-app/" target="_blank" rel="external">http://roseweixel.github.io/blog/2015/07/05/integrating-ajax-and-rails-a-simple-todo-list-app/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/04/20/rails-ajax-tips/" data-id="cin86dzlo0000431a425adlbo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/01/linux服务器常用命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">linux服务器常用命令</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/gis/">gis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ionic/">ionic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails/">rails</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/厨艺/">厨艺</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感想/">感想</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/昔日归档/">昔日归档</a><span class="category-list-count">78</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/50元/">50元</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/605/">605</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/">MFC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gis-室内地图/">gis 室内地图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wolf/">wolf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书/">书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/事业/">事业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/做事/">做事</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/做人/">做人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/出力/">出力</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/出钱/">出钱</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/刘翔/">刘翔</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/创业/">创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/史玉柱/">史玉柱</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/地震/">地震</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多难兴邦/">多难兴邦</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/头七/">头七</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/室内地图/">室内地图</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/忠告/">忠告</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/成功/">成功</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/救急不救穷/">救急不救穷</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机会/">机会</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机遇/">机遇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/校内/">校内</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/毕业/">毕业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/毛泽东-实践-认识/">毛泽东;实践;认识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/沉思录/">沉思录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/法律/">法律</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/清华/">清华</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/灾难/">灾难</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爱因斯坦/">爱因斯坦</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/狼/">狼</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用心/">用心</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电梯/">电梯</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网站/">网站</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/老汉/">老汉</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/职业/">职业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/补课/">补课</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/见义勇为/">见义勇为</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/角斗士/">角斗士</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/赚钱/">赚钱</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/50元/" style="font-size: 10px;">50元</a> <a href="/tags/605/" style="font-size: 10px;">605</a> <a href="/tags/MFC/" style="font-size: 10px;">MFC</a> <a href="/tags/gis-室内地图/" style="font-size: 10px;">gis 室内地图</a> <a href="/tags/wolf/" style="font-size: 10px;">wolf</a> <a href="/tags/书/" style="font-size: 10px;">书</a> <a href="/tags/事业/" style="font-size: 10px;">事业</a> <a href="/tags/做事/" style="font-size: 10px;">做事</a> <a href="/tags/做人/" style="font-size: 10px;">做人</a> <a href="/tags/出力/" style="font-size: 10px;">出力</a> <a href="/tags/出钱/" style="font-size: 10px;">出钱</a> <a href="/tags/刘翔/" style="font-size: 10px;">刘翔</a> <a href="/tags/创业/" style="font-size: 10px;">创业</a> <a href="/tags/史玉柱/" style="font-size: 10px;">史玉柱</a> <a href="/tags/地震/" style="font-size: 20px;">地震</a> <a href="/tags/坑/" style="font-size: 10px;">坑</a> <a href="/tags/多难兴邦/" style="font-size: 15px;">多难兴邦</a> <a href="/tags/头七/" style="font-size: 10px;">头七</a> <a href="/tags/室内地图/" style="font-size: 15px;">室内地图</a> <a href="/tags/忠告/" style="font-size: 10px;">忠告</a> <a href="/tags/成功/" style="font-size: 10px;">成功</a> <a href="/tags/救急不救穷/" style="font-size: 10px;">救急不救穷</a> <a href="/tags/机会/" style="font-size: 10px;">机会</a> <a href="/tags/机遇/" style="font-size: 10px;">机遇</a> <a href="/tags/校内/" style="font-size: 10px;">校内</a> <a href="/tags/毕业/" style="font-size: 10px;">毕业</a> <a href="/tags/毛泽东-实践-认识/" style="font-size: 10px;">毛泽东;实践;认识</a> <a href="/tags/沉思录/" style="font-size: 10px;">沉思录</a> <a href="/tags/法律/" style="font-size: 15px;">法律</a> <a href="/tags/清华/" style="font-size: 10px;">清华</a> <a href="/tags/灾难/" style="font-size: 10px;">灾难</a> <a href="/tags/爱因斯坦/" style="font-size: 10px;">爱因斯坦</a> <a href="/tags/狼/" style="font-size: 10px;">狼</a> <a href="/tags/用心/" style="font-size: 10px;">用心</a> <a href="/tags/电梯/" style="font-size: 10px;">电梯</a> <a href="/tags/网站/" style="font-size: 10px;">网站</a> <a href="/tags/老汉/" style="font-size: 10px;">老汉</a> <a href="/tags/职业/" style="font-size: 10px;">职业</a> <a href="/tags/补课/" style="font-size: 10px;">补课</a> <a href="/tags/见义勇为/" style="font-size: 10px;">见义勇为</a> <a href="/tags/角斗士/" style="font-size: 10px;">角斗士</a> <a href="/tags/赚钱/" style="font-size: 10px;">赚钱</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">November 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">July 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">January 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">September 2008</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/08/">August 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">July 2008</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">June 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">May 2008</a><span class="archive-list-count">17</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/04/20/rails-ajax-tips/">rails ajax tips</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/01/linux服务器常用命令/">linux服务器常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/22/正确配置geoserver标签label的姿势/">正确配置geoserver标签(label)的姿势</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/22/geoserver地图显示图标/">geoserver地图显示图标</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/09/set-hexo-jquery-google-fonts-cdn/">解决hexo的jquery和fonts被墙</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 sniffer<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/links" class="mobile-nav-link">Links</a>
+  
+</nav>
+    
+
+<script src="//ajax.useso.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

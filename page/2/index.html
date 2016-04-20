@@ -63,6 +63,99 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-git-stash和git-stash-pop" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/02/git-stash和git-stash-pop/" class="article-date">
+  <time datetime="2015-11-02T02:03:00.000Z" itemprop="datePublished">2015-11-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/git/">git</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/02/git-stash和git-stash-pop/">git stash和git stash pop</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在多人协作coding时，需要先commit在pull代码，这时可以用</p>
+<pre><code><span class="title">git</span> stash
+</code></pre><p>命令把不想commit的代码“储存”起来。等pull完成后，再使用</p>
+<pre><code>git stash <span class="keyword">pop</span>
+</code></pre><p>还原，有冲突会提示。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/02/git-stash和git-stash-pop/" data-id="cin1fs6ee00186e1ad506hx4f" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-navigatior传递" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/21/navigatior传递/" class="article-date">
+  <time datetime="2015-10-21T06:32:00.000Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ReactNative/">ReactNative</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/navigatior传递/">navigatior传递</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今早在写代码时报错：<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">message</span>: Cannot <span class="keyword">read</span> <span class="keyword">property</span> <span class="string">'push'</span> <span class="keyword">of</span> undefined</span><br></pre></td></tr></table></figure></p>
+<p>通过翻看react native文档，发现这么一段话：</p>
+<blockquote>
+<p>A navigator is an object of navigation functions that a view can call. It is passed as a prop to any component rendered by NavigatorIOS.        </p>
+</blockquote>
+<p>原来iOS的navigator默认传递navigator对象到props参数里了。如果不是通过navigator渲染的页面，需要自己手动写<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator=&#123;<span class="keyword">this</span>.props.navigator&#125;</span><br></pre></td></tr></table></figure></p>
+<p>比如通过tab进入的页面很容易忘记传navigator：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ScrollableTabView</span> <span class="attribute">edgeHitWidth</span>=<span class="value">&#123;deviceWidth</span> / <span class="attribute">2</span>&#125;&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">Summary</span> <span class="attribute">tabLabel</span>=<span class="value">"概况"</span>  <span class="attribute">siteId</span>=<span class="value">&#123;this.props.siteId&#125;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">Zones</span> <span class="attribute">tabLabel</span>=<span class="value">"区域"</span> <span class="attribute">siteId</span>=<span class="value">&#123;this.props.siteId&#125;</span> <span class="attribute">onZoneSelected</span>=<span class="value">&#123;this._onZoneSelected&#125;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">Search</span> <span class="attribute">tabLabel</span>=<span class="value">"搜索"</span> <span class="attribute">siteId</span>=<span class="value">&#123;this.props.siteId&#125;</span> <span class="attribute">navigator</span>=<span class="value">&#123;this.props.navigator&#125;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ScrollableTabView</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><a href="http://facebook.github.io/react-native/docs/navigatorios.html#navigator" target="_blank" rel="external">http://facebook.github.io/react-native/docs/navigatorios.html#navigator</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/10/21/navigatior传递/" data-id="cin1fs6d5000q6e1awi1coivn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-React-Native各种坑" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/10/15/React-Native各种坑/" class="article-date">
@@ -108,7 +201,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/15/React-Native各种坑/" data-id="cim328zef0078on1atst7vqb9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/15/React-Native各种坑/" data-id="cin1fs6j3007e6e1aviuite3a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坑/">坑</a></li></ul>
@@ -151,7 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/06/18/菠菜炒鸡蛋/" data-id="cim328z5l0005on1a2inlba0p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/06/18/菠菜炒鸡蛋/" data-id="cin1fs6cd00056e1a40j5klel" class="article-share-link">Share</a>
       
       
     </footer>
@@ -192,7 +285,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/20/新公司上班一个月/" data-id="cim328z5r0008on1ag6688lpe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/05/20/新公司上班一个月/" data-id="cin1fs6cp000d6e1aebc6aoe5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -233,7 +326,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2012/06/14/e5-8d-9a-e5-ae-a2-e6-90-ac-e5-ae-b6-e4-ba-86/" data-id="cim328zcw0059on1a9rv85dvy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2012/06/14/e5-8d-9a-e5-ae-a2-e6-90-ac-e5-ae-b6-e4-ba-86/" data-id="cin1fs6hy005f6e1a3k615eig" class="article-share-link">Share</a>
       
       
     </footer>
@@ -278,7 +371,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2012/06/02/grandpa/" data-id="cim328z6r000zon1ammrjt8so" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2012/06/02/grandpa/" data-id="cin1fs6dx00166e1awvcmw08r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -321,7 +414,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2012/05/28/e9-9d-a2-e7-9a-84-e6-99-ba-e6-85-a7/" data-id="cim328z77001aon1auwivmbpv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2012/05/28/e9-9d-a2-e7-9a-84-e6-99-ba-e6-85-a7/" data-id="cin1fs6es001g6e1aqnihr4oj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -362,7 +455,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2011/07/11/311/" data-id="cim328zep007non1atxi58tu9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2011/07/11/311/" data-id="cin1fs6je007t6e1adxbpban5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -407,95 +500,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2010/09/08/e4-b8-8e-e7-94-b2-e6-96-b9-e4-b8-80-e6-8a-8a-e6-89-8b-e7-9a-84-e7-94-b5-e6-a2-af-e9-82-82-e9-80-85/" data-id="cim328zdz006mon1a6r8m2i1c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2010/09/08/e4-b8-8e-e7-94-b2-e6-96-b9-e4-b8-80-e6-8a-8a-e6-89-8b-e7-9a-84-e7-94-b5-e6-a2-af-e9-82-82-e9-80-85/" data-id="cin1fs6ir006s6e1avwpmpfbs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电梯/">电梯</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-e7-8a-af-e4-ba-ba-e4-b8-8d-e4-b8-80-e5-ae-9a-e9-83-bd-e6-98-af-e5-9d-8f-e4-ba-ba-ef-bc-8c-e8-ad-a6-e5-af-9f-e4-b8-8d-e4-b8-80-e5-ae-9a-e9-83-bd-e6-98-af-e5-a5-bd-e4-ba-ba-ef-bc-81" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2010/08/23/e7-8a-af-e4-ba-ba-e4-b8-8d-e4-b8-80-e5-ae-9a-e9-83-bd-e6-98-af-e5-9d-8f-e4-ba-ba-ef-bc-8c-e8-ad-a6-e5-af-9f-e4-b8-8d-e4-b8-80-e5-ae-9a-e9-83-bd-e6-98-af-e5-a5-bd-e4-ba-ba-ef-bc-81/" class="article-date">
-  <time datetime="2010-08-23T14:33:11.000Z" itemprop="datePublished">2010-08-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/昔日归档/">昔日归档</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2010/08/23/e7-8a-af-e4-ba-ba-e4-b8-8d-e4-b8-80-e5-ae-9a-e9-83-bd-e6-98-af-e5-9d-8f-e4-ba-ba-ef-bc-8c-e8-ad-a6-e5-af-9f-e4-b8-8d-e4-b8-80-e5-ae-9a-e9-83-bd-e6-98-af-e5-a5-bd-e4-ba-ba-ef-bc-81/">犯人不一定都是坏人，警察不一定都是好人！...</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>犯人不一定都是坏人，警察不一定都是好人！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2010/08/23/e7-8a-af-e4-ba-ba-e4-b8-8d-e4-b8-80-e5-ae-9a-e9-83-bd-e6-98-af-e5-9d-8f-e4-ba-ba-ef-bc-8c-e8-ad-a6-e5-af-9f-e4-b8-8d-e4-b8-80-e5-ae-9a-e9-83-bd-e6-98-af-e5-a5-bd-e4-ba-ba-ef-bc-81/" data-id="cim328zap0033on1a6zoyi6zr" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-e8-b6-8a-e6-97-a9-e6-8e-a5-e5-8f-97-e8-87-aa-e5-b7-b1-ef-bc-8c-e8-b6-8a-e6-97-a9-e6-94-b6-e8-8e-b7-e6-88-90-e5-8a-9f-e3-80-82" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2010/07/26/e8-b6-8a-e6-97-a9-e6-8e-a5-e5-8f-97-e8-87-aa-e5-b7-b1-ef-bc-8c-e8-b6-8a-e6-97-a9-e6-94-b6-e8-8e-b7-e6-88-90-e5-8a-9f-e3-80-82/" class="article-date">
-  <time datetime="2010-07-26T11:40:48.000Z" itemprop="datePublished">2010-07-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/昔日归档/">昔日归档</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2010/07/26/e8-b6-8a-e6-97-a9-e6-8e-a5-e5-8f-97-e8-87-aa-e5-b7-b1-ef-bc-8c-e8-b6-8a-e6-97-a9-e6-94-b6-e8-8e-b7-e6-88-90-e5-8a-9f-e3-80-82/">山木强奸门</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>通过一年来的工作经历，我对自己客观的评价：一个有挑战困难的决心，且有一定的业务能力和一定的沟通能力，但尚未完全接受自己的人。</p>
-<p>无数部电影里都在揭示成功的法则：《肖申克的救赎》、《绿光》、《阿甘正传》，每一部都是奥斯卡的最佳年度影片，人们之所以喜欢这些电影，说明绝大部分人喜欢和成功的人站在一起，希望获得那样的成功。 值得一提的是阿甘正传这部片子：阿甘和珍妮这两个主角有两种不同的人生，源自两个家庭的教育方式，阿甘的母亲很早就这样教育孩子：You are no different than anybody else is，你和别人没有任何的不同，阿甘的妈妈从小就给阿甘一种自信。<br>接受自己的优点是理所当然，困难的是要接受自己的缺点，接受自己确实犯了错，接受自己能力确实不如别人，接受自己手里掌握的资源就那么一点，这样你才能谈提高自己，去蓄力、去反击，就像阿甘接受自己智商确实不如别人。<br>提到智商，我前一阵看过一本自传，日本企业家稻盛和夫的观点：“抱着产品睡觉和倾听产品的哭泣声！”他确实也是这么做的。我之所以感动这句话，是因为他有着一种质朴的情感。<br>在这个倡导“情商&gt;智商=成功”的时代，如果情感是不那么质朴的，情商越高，离成功就会越远。宋山木，这是情商很高的一个人，包括他给自己改的这个名，最终还是做出了“把门给强奸了”的事情。</p>
-<p>未完。。。。。。。。。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2010/07/26/e8-b6-8a-e6-97-a9-e6-8e-a5-e5-8f-97-e8-87-aa-e5-b7-b1-ef-bc-8c-e8-b6-8a-e6-97-a9-e6-94-b6-e8-8e-b7-e6-88-90-e5-8a-9f-e3-80-82/" data-id="cim328z8d001xon1a1nalvdd3" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -516,7 +525,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/gis/">gis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ionic/">ionic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/厨艺/">厨艺</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感想/">感想</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/昔日归档/">昔日归档</a><span class="category-list-count">78</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/gis/">gis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ionic/">ionic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails/">rails</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/厨艺/">厨艺</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感想/">感想</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/昔日归档/">昔日归档</a><span class="category-list-count">78</span></li></ul>
     </div>
   </div>
 
@@ -543,7 +552,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">November 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">July 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">January 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">September 2008</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/08/">August 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">July 2008</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">June 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">May 2008</a><span class="archive-list-count">17</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">November 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">July 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">January 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">September 2008</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/08/">August 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">July 2008</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">June 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">May 2008</a><span class="archive-list-count">17</span></li></ul>
     </div>
   </div>
 
@@ -555,6 +564,14 @@
       <ul>
         
           <li>
+            <a href="/2016/04/20/rails-ajax-tips/">rails ajax tips</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/01/linux服务器常用命令/">linux服务器常用命令</a>
+          </li>
+        
+          <li>
             <a href="/2016/03/22/正确配置geoserver标签label的姿势/">正确配置geoserver标签(label)的姿势</a>
           </li>
         
@@ -564,14 +581,6 @@
         
           <li>
             <a href="/2016/03/09/set-hexo-jquery-google-fonts-cdn/">解决hexo的jquery和fonts被墙</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/07/add-jvm-fonts/">解决geoserver中文label乱码问题</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/07/ionic-cheatsheet/">ionic-cheatsheet</a>
           </li>
         
       </ul>

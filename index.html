@@ -63,6 +63,100 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-rails-ajax-tips" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/20/rails-ajax-tips/" class="article-date">
+  <time datetime="2016-04-20T01:23:26.000Z" itemprop="datePublished">2016-04-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/rails/">rails</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/20/rails-ajax-tips/">rails ajax tips</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前不久在做一个rails项目时，要实现一个ajax刷新页面效果，rails能收到发来的请求，但是总是去渲染html页面，而不是渲染对应的js.erb文件，而这个controller里的action需要同时响应html和ajax请求。</p>
+<p>那么rails是怎么和ajax结合的呢，首先要了解什么是SJR（Server-generated JavaScript Responses），这个可以看DHH大神的文章，翻译版：<a href="https://ruby-china.org/topics/16132" target="_blank" rel="external">https://ruby-china.org/topics/16132</a></p>
+<p>首先传统的rails ajax方案是给link或者form加一个:remote =&gt; true, 这样做会由jquery-ujs对链接进行劫持把普通请求变成ajax请求，其中很重要的一条就是增加一个datatype参数，然后在request请求中会带上Accept参数，rails会根据Accept进行响应分发。比如datatype为script，则响应js文件，datatype为json，则响应json文件。jquery-ujs默认的datatype为script。<br>这样做的话，那么下面的请求都会正常响应：<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="variable">%=</span> link_to <span class="string">'index'</span>, root_url <span class="variable">%&gt;</span> <span class="comment">//返回html</span></span><br><span class="line">&lt;<span class="variable">%=</span> link_to <span class="string">'index'</span>, root_url, :remote =&gt; true <span class="variable">%&gt;</span> <span class="comment">//返回js</span></span><br></pre></td></tr></table></figure></p>
+<p>你还可以指定请求类型：<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= link_to <span class="string">'index'</span>, root_url, :remote =&gt; <span class="keyword">true</span>, <span class="string">"data-type"</span> =&gt; :json %&gt; <span class="comment">//返回json</span></span><br></pre></td></tr></table></figure></p>
+<p>如果自己写ajax请求的话要注意带上dataType，以保证rails正确响应你的请求：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  method: method,</span><br><span class="line">  url: action,</span><br><span class="line">  data: data,</span><br><span class="line">  dataType: <span class="string">'script'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>还有一种方案是在url中带上后缀，利用route将format传入action：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  method: method,</span><br><span class="line">  url: http:<span class="comment">//127.0.0.1:3000/index.js,</span></span><br><span class="line">  data: data,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>action会根据format进行响应：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">respond_to <span class="built_in">do</span> |<span class="built_in">format</span>|</span><br><span class="line">    <span class="built_in">format</span>.html</span><br><span class="line">    <span class="built_in">format</span>.js &#123;&#125;<span class="comment"> //返回js</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<p>参考：<br><a href="http://tech.thereq.com/post/17243732577/rails-3-using-linkto-remote-true-with-jquery" target="_blank" rel="external">http://tech.thereq.com/post/17243732577/rails-3-using-linkto-remote-true-with-jquery</a><br><a href="http://roseweixel.github.io/blog/2015/07/05/integrating-ajax-and-rails-a-simple-todo-list-app/" target="_blank" rel="external">http://roseweixel.github.io/blog/2015/07/05/integrating-ajax-and-rails-a-simple-todo-list-app/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/04/20/rails-ajax-tips/" data-id="cin86dzlo0000431a425adlbo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux服务器常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/01/linux服务器常用命令/" class="article-date">
+  <time datetime="2016-04-01T06:44:40.000Z" itemprop="datePublished">2016-04-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/01/linux服务器常用命令/">linux服务器常用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.查看磁盘配额<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">df</span> -h</span><br></pre></td></tr></table></figure></p>
+<img title="查看磁盘配额" alt="查看磁盘配额" src="http://sniffer-blog.qiniudn.com/static/images/df-h.png">
+<p>2.更详细的查看磁盘配额<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ncdu</span><br></pre></td></tr></table></figure></p>
+<img title="更详细的查看磁盘配额" alt="更详细的查看磁盘配额" src="http://sniffer-blog.qiniudn.com/static/images/ncdu.png">
+<p>3.查看网络流量<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nload</span><br></pre></td></tr></table></figure></p>
+<img title="查看网络流量" alt="查看网络流量" src="http://sniffer-blog.qiniudn.com/static/images/nload.png">
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/04/01/linux服务器常用命令/" data-id="cin1fs6dm00106e1alygbtx3z" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-正确配置geoserver标签label的姿势" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/03/22/正确配置geoserver标签label的姿势/" class="article-date">
@@ -94,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/22/正确配置geoserver标签label的姿势/" data-id="cim33sirp000lnd1a8nafn0l9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/22/正确配置geoserver标签label的姿势/" data-id="cin1fs6ck00086e1ac6l3nr4a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/室内地图/">室内地图</a></li></ul>
@@ -138,7 +232,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/22/geoserver地图显示图标/" data-id="cim328z6z0014on1azoxt2e1q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/22/geoserver地图显示图标/" data-id="cin1fs6ek001b6e1a78j3dlns" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/室内地图/">室内地图</a></li></ul>
@@ -183,7 +277,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/09/set-hexo-jquery-google-fonts-cdn/" data-id="cim328z64000jon1abgjo9tza" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/09/set-hexo-jquery-google-fonts-cdn/" data-id="cin1fs6d1000n6e1a0pl7uoru" class="article-share-link">Share</a>
       
       
     </footer>
@@ -233,7 +327,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/07/add-jvm-fonts/" data-id="cim328zed0076on1as2ypl246" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/07/add-jvm-fonts/" data-id="cin1fs6j1007c6e1atfcvsnnw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -278,7 +372,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/07/ionic-cheatsheet/" data-id="cim328z6n000won1amxo7o40f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/07/ionic-cheatsheet/" data-id="cin1fs6dp00136e1aoibizj7l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -341,7 +435,7 @@ npm <span class="keyword">info</span> underscore （如果上面配置正确这�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/01/mac-cheatsheet/" data-id="cim328z6k000ton1acs6b7e0i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/01/mac-cheatsheet/" data-id="cin1fs6dh000x6e1ar4l14p7n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -408,7 +502,7 @@ gem <span class="keyword">install</span> rgeo</span>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/25/室内地图导入postgis/" data-id="cim328z5v000bon1atn8qj6j9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/25/室内地图导入postgis/" data-id="cin1fs6cu000g6e1aoab7fioj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gis-室内地图/">gis 室内地图</a></li></ul>
@@ -452,100 +546,7 @@ gem <span class="keyword">install</span> rgeo</span>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/05/处理fetch-error/" data-id="cim328z60000gon1agxtezly8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-git-stash和git-stash-pop" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/11/02/git-stash和git-stash-pop/" class="article-date">
-  <time datetime="2015-11-02T02:03:00.000Z" itemprop="datePublished">2015-11-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/git/">git</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/02/git-stash和git-stash-pop/">git stash和git stash pop</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在多人协作coding时，需要先commit在pull代码，这时可以用</p>
-<pre><code><span class="title">git</span> stash
-</code></pre><p>命令把不想commit的代码“储存”起来。等pull完成后，再使用</p>
-<pre><code>git stash <span class="keyword">pop</span>
-</code></pre><p>还原，有冲突会提示。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/02/git-stash和git-stash-pop/" data-id="cim328z6v0011on1ajkce1sg6" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-navigatior传递" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/21/navigatior传递/" class="article-date">
-  <time datetime="2015-10-21T06:32:00.000Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ReactNative/">ReactNative</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/navigatior传递/">navigatior传递</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今早在写代码时报错：<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">message</span>: Cannot <span class="keyword">read</span> <span class="keyword">property</span> <span class="string">'push'</span> <span class="keyword">of</span> undefined</span><br></pre></td></tr></table></figure></p>
-<p>通过翻看react native文档，发现这么一段话：</p>
-<blockquote>
-<p>A navigator is an object of navigation functions that a view can call. It is passed as a prop to any component rendered by NavigatorIOS.        </p>
-</blockquote>
-<p>原来iOS的navigator默认传递navigator对象到props参数里了。如果不是通过navigator渲染的页面，需要自己手动写<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator=&#123;<span class="keyword">this</span>.props.navigator&#125;</span><br></pre></td></tr></table></figure></p>
-<p>比如通过tab进入的页面很容易忘记传navigator：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ScrollableTabView</span> <span class="attribute">edgeHitWidth</span>=<span class="value">&#123;deviceWidth</span> / <span class="attribute">2</span>&#125;&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">Summary</span> <span class="attribute">tabLabel</span>=<span class="value">"概况"</span>  <span class="attribute">siteId</span>=<span class="value">&#123;this.props.siteId&#125;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">Zones</span> <span class="attribute">tabLabel</span>=<span class="value">"区域"</span> <span class="attribute">siteId</span>=<span class="value">&#123;this.props.siteId&#125;</span> <span class="attribute">onZoneSelected</span>=<span class="value">&#123;this._onZoneSelected&#125;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">Search</span> <span class="attribute">tabLabel</span>=<span class="value">"搜索"</span> <span class="attribute">siteId</span>=<span class="value">&#123;this.props.siteId&#125;</span> <span class="attribute">navigator</span>=<span class="value">&#123;this.props.navigator&#125;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ScrollableTabView</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><a href="http://facebook.github.io/react-native/docs/navigatorios.html#navigator" target="_blank" rel="external">http://facebook.github.io/react-native/docs/navigatorios.html#navigator</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/21/navigatior传递/" data-id="cim328z67000mon1aqat2214l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/05/处理fetch-error/" data-id="cin1fs6cx000k6e1ac6cph11s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -568,7 +569,7 @@ gem <span class="keyword">install</span> rgeo</span>
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/gis/">gis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ionic/">ionic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/厨艺/">厨艺</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感想/">感想</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/昔日归档/">昔日归档</a><span class="category-list-count">78</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/gis/">gis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ionic/">ionic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails/">rails</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/厨艺/">厨艺</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感想/">感想</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/昔日归档/">昔日归档</a><span class="category-list-count">78</span></li></ul>
     </div>
   </div>
 
@@ -595,7 +596,7 @@ gem <span class="keyword">install</span> rgeo</span>
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">November 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">July 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">January 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">September 2008</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/08/">August 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">July 2008</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">June 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">May 2008</a><span class="archive-list-count">17</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">November 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">July 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">January 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">September 2008</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/08/">August 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">July 2008</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">June 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">May 2008</a><span class="archive-list-count">17</span></li></ul>
     </div>
   </div>
 
@@ -607,6 +608,14 @@ gem <span class="keyword">install</span> rgeo</span>
       <ul>
         
           <li>
+            <a href="/2016/04/20/rails-ajax-tips/">rails ajax tips</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/01/linux服务器常用命令/">linux服务器常用命令</a>
+          </li>
+        
+          <li>
             <a href="/2016/03/22/正确配置geoserver标签label的姿势/">正确配置geoserver标签(label)的姿势</a>
           </li>
         
@@ -616,14 +625,6 @@ gem <span class="keyword">install</span> rgeo</span>
         
           <li>
             <a href="/2016/03/09/set-hexo-jquery-google-fonts-cdn/">解决hexo的jquery和fonts被墙</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/07/add-jvm-fonts/">解决geoserver中文label乱码问题</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/07/ionic-cheatsheet/">ionic-cheatsheet</a>
           </li>
         
       </ul>
