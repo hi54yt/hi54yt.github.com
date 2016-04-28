@@ -63,6 +63,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-mfc" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2008/06/24/mfc/" class="article-date">
+  <time datetime="2008-06-24T02:52:38.000Z" itemprop="datePublished">2008-06-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/昔日归档/">昔日归档</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2008/06/24/mfc/">MFC </a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>MFC</strong>,<a href="http://yangtao.wordpress.com.cn/view/2353.htm" target="_blank" rel="external">微软</a>基础类(<strong>Microsoft Foundation Classes</strong>)，同VCL类似，是一种Application Framework，随微软Visual C++ 开发工具发布。目前最新版本为8.0（截止2007年初）。该类库提供一组通用的可重用的类库供开发人员使用。大部分类均从CObject 直接或间接派生，只有少部分类例外。</p>
+<p>MFC 应用程序的总体结构通常由 由开发人员从MFC类派生的几个类和一个CWinApp类对象（应用程序对象）组成。MFC 提供了MFC AppWizard 自动生成框架。</p>
+<p>Windows 应用程序中，MFC 的主包含文件为”Afxwin.h”。</p>
+<p>此外MFC的部分类为MFC/ATL 通用，可以在Win32 应用程序中单独包含并使用这些类。</p>
+<h2 id="由于它的易用性，初学者常误认为VC++开发必须使用MFC。这种想法是错误的。作为Application_Framework，MFC的使用只能提高某些情况下的开发效率，只起到辅助作用，而不能替代整个Win32_程序设计。">由于它的易用性，初学者常误认为VC++开发必须使用MFC。这种想法是错误的。作为Application Framework，MFC的使用只能提高某些情况下的开发效率，只起到辅助作用，而不能替代整个Win32 程序设计。</h2><h2 id="（下面是原词条）">（下面是原词条）</h2><p><strong>MFC</strong>,微软基础类(<strong>Microsoft Foundation Classes</strong>),实际上是微软提供的,用于在<strong>C++</strong>环境下编写应用程序的一个框架和引擎,<strong>VC++</strong>是<strong>WinOS</strong>下开发人员使用的专业<strong>C++ SDK</strong>(<strong>SDK,Standard SoftWare Develop Kit,专业软件开发平台</strong>),MFC就是挂在它之上的一个辅助软件开发包,MFC作为与VC++血肉相连的部分(注意C++和VC++的区别:C++是一种程序设计语言,是一种大家都承认的软件编制的通用规范,而VC++只是一个编译器,或者说是一种编译器+源程序编辑器的IDE,WS,PlatForm,这跟<a href="http://yangtao.wordpress.com.cn/view/9355.htm" target="_blank" rel="external">Pascal</a>和Dephi的关系一个道理,Pascal是Dephi的语言基础,Dephi使用Pascal规范来进行Win下应用程序的开发和编译,却不同于<a href="http://yangtao.wordpress.com.cn/view/7334.htm" target="_blank" rel="external">Basic</a>语言和<a href="http://yangtao.wordpress.com.cn/view/3063.htm" target="_blank" rel="external">VB</a>的关系,Basic语言在VB开发出来被应用的年代已经成了Basic语言的新规范,VB新加的Basic语言要素,如面向对象程序设计的要素,是一种性质上的飞跃,使VB既是一个IDE,又成长成一个新的程序设计语言),MFC同BC++集成的VCL一样是一个非外挂式的软件包,类库,只不过MFC类是微软为VC++专配的..</p>
+<p><strong>MFC是Win <a href="http://yangtao.wordpress.com.cn/view/16068.htm" target="_blank" rel="external">API</a>与C++的结合</strong>,API,即微软提供的WinOS下应用程序的编程语言接口,是一种软件编程的规范,但不是一种程序开发语言本身,可以允许用户使用各种各样的第三方(如我是一方,微软是一方,Borland就是第三方)的编程语言来进行对Win OS下应用程序的开发,使这些被开发出来的应用程序能在WinOS下运行,比如VB,VC++,<a href="http://yangtao.wordpress.com.cn/view/29.htm" target="_blank" rel="external">Java</a>,Dehpi编程语言函数本质上全部源于API,因此用它们开发出来的应用程序都能工作在WinOS的消息机制和绘图里,遵守WinOS作为一个操作系统的内部实现,这其实也是一种必要,微软如果不提供API,这个世上对Win编程的工作就不会存在,微软的产品就会迅速从时尚变成垃圾,上面说到MFC是微软对API函数的专用C++封装,这种结合一方面让用户使用微软的专业C++ SDK来进行Win下应用程序的开发变得容易,因为MFC是对API的封装,微软做了大量的工作,隐藏了好多程序开发人员在Win下用C++ &amp; MFC编制软件时的大量内节,如应用程序实现消息的处理,设备环境绘图,这种结合是以方便为目的的,必定要付出一定代价(这是微软的一向作风),因此就造成了MFC对类封装中的一定程度的的冗余和迂回,但这是可以接受的..</p>
+<p>最后要明白MFC不只是一个功能单纯的界面开发系统,它提供的类绝大部分用来进行界面开发,关联一个窗口的动作,但它提供的类中有好多类不与一个窗口关联,即类的作用不是一个界面类,不实现对一个窗口对象的控制(如创建,销毁),而是一些在WinOS(用MFC编写的程序绝大部分都在WinOS中运行)中实现内部处理的类,如数据库的管理类等,学习中最应花费时间的是消息和设备环境,对C++和MFC的学习中最难的部分是指针,C++面向对像程序设计的其它部分,如数据类型,流程控制都不难,建议学习数据结构C++版..<a href="http://home.nuc.edu.cn/~yayu/look.php?id=25" target="_blank" rel="external">http://home.nuc.edu.cn/~yayu/look.php?id=25</a><br>MFC是微软封装了的API。什么意思呢？windows作为一个提供功能强大的应用程序接口编程的操作系统，的确方便了许多程序员，传统的win32开发（直接使用windows的接口函数API）对于程序员来说非常的困难，因为<br>API函数实在太多了，而且名称很乱，从零构架一个窗口动辄就是上百行的代码。MFC是面向对象程序设计与Application framework的完美结合，他将传统的API进行了分类封装，并且为你创建了程序的一般框架，</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2008/06/24/mfc/" data-id="cinjn73w4000v501ayz2j7kiv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-e6-b5-8b-e8-af-95" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2008/06/24/e6-b5-8b-e8-af-95/" class="article-date">
@@ -94,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2008/06/24/e6-b5-8b-e8-af-95/" data-id="cin1fs6gg003h6e1al9d1shlp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2008/06/24/e6-b5-8b-e8-af-95/" data-id="cinjn740t003m501a78xy61iw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -261,7 +310,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2008/06/20/e5-9b-bd-e5-ae-b6-e6-95-99-e8-82-b2-e8-80-83-e8-af-95-e8-bf-9d-e8-a7-84-e5-a4-84-e7-90-86-e5-8a-9e-e6-b3-95/" data-id="cin1fs6hr00516e1a5868x1ex" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2008/06/20/e5-9b-bd-e5-ae-b6-e6-95-99-e8-82-b2-e8-80-83-e8-af-95-e8-bf-9d-e8-a7-84-e5-a4-84-e7-90-86-e5-8a-9e-e6-b3-95/" data-id="cinjn741z0056501aip0z1ajh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/法律/">法律</a></li></ul>
@@ -337,7 +386,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2008/06/20/e4-b8-ad-e5-8d-8e-e4-ba-ba-e6-b0-91-e5-85-b1-e5-92-8c-e5-9b-bd-e6-b2-bb-e5-ae-89-e7-ae-a1-e7-90-86-e5-a4-84-e7-bd-9a-e6-b3-95/" data-id="cin1fs6in006n6e1av9338zxm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2008/06/20/e4-b8-ad-e5-8d-8e-e4-ba-ba-e6-b0-91-e5-85-b1-e5-92-8c-e5-9b-bd-e6-b2-bb-e5-ae-89-e7-ae-a1-e7-90-86-e5-a4-84-e7-bd-9a-e6-b3-95/" data-id="cinjn742x006s501amgqkcmrh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/法律/">法律</a></li></ul>
@@ -405,7 +454,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2008/06/20/e3-80-8a-e8-a7-92-e6-96-97-e5-a3-ab-e3-80-8b-e8-83-8c-e5-90-8e-e7-9a-84-e5-8e-86-e5-8f-b2-e5-92-8c-e4-bc-a0-e5-a5-87/" data-id="cin1fs6iv006y6e1as9ec3gbs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2008/06/20/e3-80-8a-e8-a7-92-e6-96-97-e5-a3-ab-e3-80-8b-e8-83-8c-e5-90-8e-e7-9a-84-e5-8e-86-e5-8f-b2-e5-92-8c-e4-bc-a0-e5-a5-87/" data-id="cinjn74350073501aposanhx0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/沉思录/">沉思录</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/角斗士/">角斗士</a></li></ul>
@@ -452,7 +501,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2008/06/13/e2-80-9d-e6-95-91-e6-80-a5-e4-b8-8d-e6-95-91-e7-a9-b7-e2-80-9c/" data-id="cin1fs6iz00766e1a9vfz280a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2008/06/13/e2-80-9d-e6-95-91-e6-80-a5-e4-b8-8d-e6-95-91-e7-a9-b7-e2-80-9c/" data-id="cinjn7438007b501ass01x6ff" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/地震/">地震</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多难兴邦/">多难兴邦</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/救急不救穷/">救急不救穷</a></li></ul>
@@ -499,7 +548,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2008/06/13/e5-a4-a7-e9-9a-be-e6-97-b6-e5-87-ba-e5-8a-9b-e6-af-94-e5-87-ba-e9-92-b1-e4-bc-9f-e5-a4-a7-ef-bc-81/" data-id="cin1fs6hg004h6e1ap34sacrc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2008/06/13/e5-a4-a7-e9-9a-be-e6-97-b6-e5-87-ba-e5-8a-9b-e6-af-94-e5-87-ba-e9-92-b1-e4-bc-9f-e5-a4-a7-ef-bc-81/" data-id="cinjn741q004m501argooos8s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/出力/">出力</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/出钱/">出钱</a></li></ul>
@@ -546,7 +595,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2008/06/13/e7-bb-99-e5-8d-b3-e5-b0-86-e8-bf-9b-e5-85-a5-e5-a4-a7-e5-ad-a6-e7-9a-84-e6-96-b0-e4-ba-ba-e4-b8-80-e7-82-b9-e2-80-9c-e5-bf-a0-e5-91-8a-e2-80-9d/" data-id="cin1fs6fx002t6e1ae43x09u9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2008/06/13/e7-bb-99-e5-8d-b3-e5-b0-86-e8-bf-9b-e5-85-a5-e5-a4-a7-e5-ad-a6-e7-9a-84-e6-96-b0-e4-ba-ba-e4-b8-80-e7-82-b9-e2-80-9c-e5-bf-a0-e5-91-8a-e2-80-9d/" data-id="cinjn7403002y501alhpioqmu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/忠告/">忠告</a></li></ul>
@@ -598,7 +647,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2008/05/30/e5-87-ba-e5-94-ae-e9-97-b2-e7-bd-ae-e7-88-b1-e5-8f-af-e8-a7-86605wifi4g/" data-id="cin1fs6i7005r6e1a10c4ijku" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2008/05/30/e5-87-ba-e5-94-ae-e9-97-b2-e7-bd-ae-e7-88-b1-e5-8f-af-e8-a7-86605wifi4g/" data-id="cinjn742h005w501a4zjhu0ct" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/605/">605</a></li></ul>
@@ -645,57 +694,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2008/05/26/e5-85-b3-e4-ba-8e-e6-af-95-e4-b8-9a-e8-a7-86-e9-a2-91-e7-9a-84-e8-ae-be-e6-83-b3/" data-id="cin1fs6ib005x6e1a84thsipb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2008/05/26/e5-85-b3-e4-ba-8e-e6-af-95-e4-b8-9a-e8-a7-86-e9-a2-91-e7-9a-84-e8-ae-be-e6-83-b3/" data-id="cinjn742l0062501a7t8biap5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/毕业/">毕业</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-e5-a4-9a-e9-9a-be-e5-85-b4-e9-82-a6" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2008/05/25/e5-a4-9a-e9-9a-be-e5-85-b4-e9-82-a6/" class="article-date">
-  <time datetime="2008-05-24T17:39:56.000Z" itemprop="datePublished">2008-05-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/昔日归档/">昔日归档</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2008/05/25/e5-a4-9a-e9-9a-be-e5-85-b4-e9-82-a6/">多难兴邦</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://yangtao.wordpress.com.cn/files/2008/05/xin_19050524053871823533.jpg"><img src="http://yangtao.wordpress.com.cn/files/2008/05/xin_19050524053871823533.jpg" alt=""></a>
-        
-          <p class="article-more-link">
-            <a href="/2008/05/25/e5-a4-9a-e9-9a-be-e5-85-b4-e9-82-a6/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2008/05/25/e5-a4-9a-e9-9a-be-e5-85-b4-e9-82-a6/" data-id="cin1fs6hl004p6e1ab0j0ki1v" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/地震/">地震</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多难兴邦/">多难兴邦</a></li></ul>
 
     </footer>
   </div>
@@ -717,7 +719,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/gis/">gis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ionic/">ionic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails/">rails</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/厨艺/">厨艺</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感想/">感想</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/昔日归档/">昔日归档</a><span class="category-list-count">78</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/gis/">gis</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ionic/">ionic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails/">rails</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/厨艺/">厨艺</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感想/">感想</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/昔日归档/">昔日归档</a><span class="category-list-count">78</span></li></ul>
     </div>
   </div>
 
@@ -744,7 +746,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">November 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">July 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">January 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">September 2008</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/08/">August 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">July 2008</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">June 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">May 2008</a><span class="archive-list-count">17</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">November 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">July 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">January 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">September 2008</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/08/">August 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">July 2008</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">June 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">May 2008</a><span class="archive-list-count">17</span></li></ul>
     </div>
   </div>
 
@@ -754,6 +756,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/04/28/find-closest-network-backend/">实现最短路径查找服务端api</a>
+          </li>
         
           <li>
             <a href="/2016/04/20/rails-ajax-tips/">rails ajax tips</a>
@@ -769,10 +775,6 @@
         
           <li>
             <a href="/2016/03/22/geoserver地图显示图标/">geoserver地图显示图标</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/09/set-hexo-jquery-google-fonts-cdn/">解决hexo的jquery和fonts被墙</a>
           </li>
         
       </ul>

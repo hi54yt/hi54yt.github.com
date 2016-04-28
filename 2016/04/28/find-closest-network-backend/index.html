@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: 昔日归档 | sniffer&#39;s blog</title>
+  <title>实现最短路径查找服务端api | sniffer&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="sniffer's blog">
-<meta property="og:url" content="http://yoursite.com/categories/昔日归档/page/8/index.html">
+  <meta name="description" content="实现最短路径查找，需要服务端配合：以ruby为例，首先创建一个私有方法，用来获取“附近”的node，作为开始位置和结束位置123456789101112def find_closest_network_node(x, y, floor)  res = CONN.execute(%Q&amp;#123;SELECT verts.id as id FROM public.networklines_3857_v">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实现最短路径查找服务端api">
+<meta property="og:url" content="http://yoursite.com/2016/04/28/find-closest-network-backend/index.html">
 <meta property="og:site_name" content="sniffer's blog">
-<meta property="og:description">
+<meta property="og:description" content="实现最短路径查找，需要服务端配合：以ruby为例，首先创建一个私有方法，用来获取“附近”的node，作为开始位置和结束位置123456789101112def find_closest_network_node(x, y, floor)  res = CONN.execute(%Q&amp;#123;SELECT verts.id as id FROM public.networklines_3857_v">
+<meta property="og:updated_time" content="2016-04-28T02:02:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sniffer's blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="实现最短路径查找服务端api">
+<meta name="twitter:description" content="实现最短路径查找，需要服务端配合：以ruby为例，首先创建一个私有方法，用来获取“附近”的node，作为开始位置和结束位置123456789101112def find_closest_network_node(x, y, floor)  res = CONN.execute(%Q&amp;#123;SELECT verts.id as id FROM public.networklines_3857_v">
   
     <link rel="alternative" href="/atom.xml" title="sniffer&#39;s blog" type="application/atom+xml">
   
@@ -61,172 +62,59 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2008" class="archive-year">2008</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2008/05/10/e8-80-81-e6-b1-89-e4-b8-8d-e6-bb-a1-e5-84-bf-e5-ad-90-e6-9c-aa-e8-80-83-e5-8f-96-e5-90-8d-e7-89-8c-e9-ab-98-e6-a0-a1-e8-87-aa-e5-ad-a6-e8-80-83-e4-b8-8a-e6-b8-85-e5-8d-8e-e5-a4-a7-e5-ad-a6/" class="archive-article-date">
-  <time datetime="2008-05-09T17:54:56.000Z" itemprop="datePublished">May 10</time>
+        <section id="main"><article id="post-find-closest-network-backend" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/28/find-closest-network-backend/" class="article-date">
+  <time datetime="2016-04-28T01:46:02.000Z" itemprop="datePublished">2016-04-28</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/gis/">gis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2008/05/10/e8-80-81-e6-b1-89-e4-b8-8d-e6-bb-a1-e5-84-bf-e5-ad-90-e6-9c-aa-e8-80-83-e5-8f-96-e5-90-8d-e7-89-8c-e9-ab-98-e6-a0-a1-e8-87-aa-e5-ad-a6-e8-80-83-e4-b8-8a-e6-b8-85-e5-8d-8e-e5-a4-a7-e5-ad-a6/">老汉不满儿子未考取名牌高校 自学考上清华大学</a>
+    <h1 class="article-title" itemprop="name">
+      实现最短路径查找服务端api
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2008/05/09/e7-94-a8-e5-bf-83-e4-b8-8e-e7-94-a8-e8-84-91/" class="archive-article-date">
-  <time datetime="2008-05-09T13:47:23.000Z" itemprop="datePublished">May 9</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2008/05/09/e7-94-a8-e5-bf-83-e4-b8-8e-e7-94-a8-e8-84-91/">用心与用脑</a>
-    </h1>
-  
+        <p>实现最短路径查找，需要服务端配合：<br>以ruby为例，首先创建一个私有方法，用来获取“附近”的node，作为开始位置和结束位置<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_closest_network_node</span></span>(x, y, floor)</span><br><span class="line">  res = <span class="constant">CONN</span>.execute(%<span class="constant">Q</span>&#123;<span class="constant">SELECT</span> verts.id <span class="keyword">as</span> id <span class="constant">FROM</span> public.networklines_3857_vertices_pgr <span class="constant">AS</span> verts</span><br><span class="line">                        <span class="constant">INNER</span> <span class="constant">JOIN</span> (select <span class="constant">ST_PointFromText</span>(<span class="string">'POINT(<span class="subst">#&#123;x&#125;</span> <span class="subst">#&#123;y&#125;</span> <span class="subst">#&#123;floor&#125;</span>)'</span>, <span class="number">3857</span>)<span class="keyword">as</span> geom) <span class="constant">AS</span> pt</span><br><span class="line">                        <span class="constant">ON</span> <span class="constant">ST_DWithin</span>(verts.the_geom, pt.geom, <span class="number">100.0</span>)</span><br><span class="line">                        <span class="constant">WHERE</span> <span class="constant">ST_Z</span>(verts.the_geom) = <span class="comment">#&#123;floor&#125;</span></span><br><span class="line">                        <span class="constant">ORDER</span> <span class="constant">BY</span> <span class="constant">ST_3DDistance</span>(verts.the_geom, pt.geom) <span class="constant">LIMIT</span> <span class="number">1</span>&#125;)</span><br><span class="line">  <span class="keyword">if</span> res.ntuples != <span class="number">0</span></span><br><span class="line">    res.getvalue(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<p>然后创建获取最短路径的geoJSON，以供前台展示用，比如leaflet等：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">def map_path</span><br><span class="line">  start_x = params[:start_x]</span><br><span class="line">  start_y = params[:start_y]</span><br><span class="line">  start_floor = Beacon.find_by_name(params[:start_minor].to_i).floor.num</span><br><span class="line"></span><br><span class="line">  end_x = params[:end_x]</span><br><span class="line">  end_y = params[:end_y]</span><br><span class="line">  end_floor = Beacon.find_by_name(params[:end_minor].to_i).floor.num</span><br><span class="line"></span><br><span class="line">  <span class="comment">//获取开始位置和结束位置的node id</span></span><br><span class="line">  start_node_id = find_closest_network_node(start_x, start_y, start_floor)</span><br><span class="line">  end_node_id = find_closest_network_node(end_x, end_y, end_floor)</span><br><span class="line"></span><br><span class="line">  <span class="comment">//通过数据库查询最短路径的拓扑数据，指定返回的拓扑结果为geoJSON格式</span></span><br><span class="line">  <span class="keyword">if</span> start_node_id.present? &amp;&amp; end_node_id.present?</span><br><span class="line">    res = CONN.execute(%Q&#123;SELECT seq, id1 <span class="keyword">AS</span> node, id2 <span class="keyword">AS</span> edge,</span><br><span class="line">            total_cost <span class="keyword">AS</span> cost, layer,</span><br><span class="line">            type_id, ST_AsGeoJSON(wkb_geometry) <span class="keyword">AS</span> geoj</span><br><span class="line">            FROM pgr_dijkstra(</span><br><span class="line">              <span class="string">'SELECT ogc_fid as id, source, target,</span><br><span class="line">                   st_length(wkb_geometry) AS cost,</span><br><span class="line">                   layer, type_id</span><br><span class="line">               FROM public.networklines_3857'</span>,</span><br><span class="line">              <span class="comment">#&#123;start_node_id&#125;, #&#123;end_node_id&#125;, FALSE, FALSE</span></span><br><span class="line">            ) <span class="keyword">AS</span> dij_route</span><br><span class="line">            JOIN  <span class="keyword">public</span>.networklines_3857 <span class="keyword">AS</span> input_network</span><br><span class="line">            ON dij_route.id2 = input_network.ogc_fid&#125;)</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> render nothing: <span class="keyword">true</span>, status: <span class="number">404</span></span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">  <span class="comment">//拼装成leaflet所用的格式返回给客户端</span></span><br><span class="line">  route_features = []</span><br><span class="line"></span><br><span class="line">  res.each <span class="keyword">do</span> |segment|</span><br><span class="line"></span><br><span class="line">    seg_cost = segment[<span class="string">'cost'</span>]      <span class="comment"># cost value</span></span><br><span class="line">    layer_level = segment[<span class="string">'layer'</span>].to_i   <span class="comment"># floor number</span></span><br><span class="line">    seg_type = segment[<span class="string">'type_id'</span>]</span><br><span class="line">    geojs = JSON.parse(segment[<span class="string">'geoj'</span>])         <span class="comment"># geojson coordinates</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    geojs[<span class="string">"coordinates"</span>].each <span class="keyword">do</span> |geo|</span><br><span class="line">      lon = geo[<span class="number">0</span>]</span><br><span class="line">      lat = geo[<span class="number">1</span>]</span><br><span class="line">      point = unproject(lon, lat)</span><br><span class="line">      geo[<span class="number">0</span>] = point[:x]</span><br><span class="line">      geo[<span class="number">1</span>] = point[:y]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    <span class="comment"># build geojson</span></span><br><span class="line">    feature = &#123; <span class="string">"type"</span>: <span class="string">"Feature"</span>,</span><br><span class="line">                <span class="string">"geometry"</span>: geojs,</span><br><span class="line">                <span class="string">"properties"</span>: &#123;<span class="string">"floor"</span>: layer_level,</span><br><span class="line">                               <span class="string">"length"</span>: seg_cost,</span><br><span class="line">                               <span class="string">"type_id"</span>: seg_type&#125;</span><br><span class="line">              &#125;</span><br><span class="line">    route_features &lt;&lt; feature</span><br><span class="line">  end</span><br><span class="line">  @path = &#123; <span class="string">"type"</span>: <span class="string">"FeatureCollection"</span>,</span><br><span class="line">    <span class="string">"features"</span>: route_features</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  respond_to <span class="keyword">do</span> |format|</span><br><span class="line">    format.json &#123; render json: @path &#125;</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2008/05/09/e5-85-88-e5-81-9a-e4-ba-8b-ef-bc-8c-e5-90-8e-e5-81-9a-e4-ba-ba/" class="archive-article-date">
-  <time datetime="2008-05-09T13:18:58.000Z" itemprop="datePublished">May 9</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2008/05/09/e5-85-88-e5-81-9a-e4-ba-8b-ef-bc-8c-e5-90-8e-e5-81-9a-e4-ba-ba/">先做事，后做人</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2008/05/09/e5-8d-81-e5-b2-81-e5-a5-b3-e5-ad-a9-e4-b8-be-e6-8a-a5-e9-bb-84-e8-89-b2-e7-bd-91-e7-ab-99-e8-a2-ab-e4-ba-ba-e7-a7-b0-e4-bd-9c-e2-80-9c-e7-bd-91-e7-bb-9c-e5-b0-8f-e8-ad-a6-e5-af-9f-e2-80-9d/" class="archive-article-date">
-  <time datetime="2008-05-09T12:11:04.000Z" itemprop="datePublished">May 9</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/04/28/find-closest-network-backend/" data-id="cinjn73wx001h501ad8zd234g" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2008/05/09/e5-8d-81-e5-b2-81-e5-a5-b3-e5-ad-a9-e4-b8-be-e6-8a-a5-e9-bb-84-e8-89-b2-e7-bd-91-e7-ab-99-e8-a2-ab-e4-ba-ba-e7-a7-b0-e4-bd-9c-e2-80-9c-e7-bd-91-e7-bb-9c-e5-b0-8f-e8-ad-a6-e5-af-9f-e2-80-9d/">“见义勇为”</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2008/05/08/e7-88-b1-e5-9b-a0-e6-96-af-e5-9d-a6-e6-bc-94-e8-ae-b2-e5-9f-b9-e5-85-bb-e7-8b-ac-e7-ab-8b-e5-b7-a5-e4-bd-9c-e5-92-8c-e7-8b-ac-e7-ab-8b-e6-80-9d-e8-80-83-e7-9a-84-e4-ba-ba/" class="archive-article-date">
-  <time datetime="2008-05-08T03:55:54.000Z" itemprop="datePublished">May 8</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2008/05/08/e7-88-b1-e5-9b-a0-e6-96-af-e5-9d-a6-e6-bc-94-e8-ae-b2-e5-9f-b9-e5-85-bb-e7-8b-ac-e7-ab-8b-e5-b7-a5-e4-bd-9c-e5-92-8c-e7-8b-ac-e7-ab-8b-e6-80-9d-e8-80-83-e7-9a-84-e4-ba-ba/">爱因斯坦演讲 培养独立工作和独立思考的人 </a>
-    </h1>
-  
-
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2008/05/07/e7-8b-bc/" class="archive-article-date">
-  <time datetime="2008-05-07T12:22:58.000Z" itemprop="datePublished">May 7</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2008/05/07/e7-8b-bc/">狼</a>
-    </h1>
   
+    <a href="/2016/04/20/rails-ajax-tips/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">rails ajax tips</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2008/05/04/e6-b5-8b-e4-b8-aa-e8-af-95-ef-bc-81/" class="archive-article-date">
-  <time datetime="2008-05-03T16:24:37.000Z" itemprop="datePublished">May 4</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2008/05/04/e6-b5-8b-e4-b8-aa-e8-af-95-ef-bc-81/">测个试！</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2008/05/03/e9-93-be-e6-8e-a5/" class="archive-article-date">
-  <time datetime="2008-05-03T04:38:25.000Z" itemprop="datePublished">May 3</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2008/05/03/e9-93-be-e6-8e-a5/">一些可以作模板的页面</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 </section>
         
           <aside id="sidebar">

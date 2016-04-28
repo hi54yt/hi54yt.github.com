@@ -63,6 +63,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-处理fetch-error" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/05/处理fetch-error/" class="article-date">
+  <time datetime="2015-11-05T09:06:00.000Z" itemprop="datePublished">2015-11-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ReactNative/">ReactNative</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/05/处理fetch-error/">处理fetch error</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在react native里如果用了fetch，需要处理error，否则遇到网络无法连接等问题时，ios程序会直接崩溃.解决办法是用catch error:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fetch(endpoint + <span class="string">'/sites/'</span> + <span class="keyword">this</span>.props.siteId + <span class="string">'/devices.json'</span>)</span><br><span class="line">  .then((response) =&gt; response.json())</span><br><span class="line">  .then((response) =&gt; &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;devices: response&#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch((error) =&gt; <span class="built_in">console</span>.log(error))</span><br><span class="line">  .done()</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://facebook.github.io/react-native/docs/network.html#async" target="_blank" rel="external">https://facebook.github.io/react-native/docs/network.html#async</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/05/处理fetch-error/" data-id="cinjn73vn000k501az2osh39j" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-git-stash和git-stash-pop" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/11/02/git-stash和git-stash-pop/" class="article-date">
@@ -98,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/02/git-stash和git-stash-pop/" data-id="cin1fs6ee00186e1ad506hx4f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/02/git-stash和git-stash-pop/" data-id="cinjn73wp001b501amei2aaa1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -146,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/21/navigatior传递/" data-id="cin1fs6d5000q6e1awi1coivn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/21/navigatior传递/" data-id="cinjn73w0000t501axlihq2d6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -201,7 +243,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/15/React-Native各种坑/" data-id="cin1fs6j3007e6e1aviuite3a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/15/React-Native各种坑/" data-id="cinjn743d007j501a95k7ueiu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坑/">坑</a></li></ul>
@@ -244,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/06/18/菠菜炒鸡蛋/" data-id="cin1fs6cd00056e1a40j5klel" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/06/18/菠菜炒鸡蛋/" data-id="cinjn73v50005501akhjlx6xt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -285,7 +327,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/20/新公司上班一个月/" data-id="cin1fs6cp000d6e1aebc6aoe5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/05/20/新公司上班一个月/" data-id="cinjn73vf000d501aqfp24q2s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -326,7 +368,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2012/06/14/e5-8d-9a-e5-ae-a2-e6-90-ac-e5-ae-b6-e4-ba-86/" data-id="cin1fs6hy005f6e1a3k615eig" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2012/06/14/e5-8d-9a-e5-ae-a2-e6-90-ac-e5-ae-b6-e4-ba-86/" data-id="cinjn7426005k501ajao27qpl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -371,7 +413,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2012/06/02/grandpa/" data-id="cin1fs6dx00166e1awvcmw08r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2012/06/02/grandpa/" data-id="cinjn73wm0019501aur1m0de0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -414,7 +456,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2012/05/28/e9-9d-a2-e7-9a-84-e6-99-ba-e6-85-a7/" data-id="cin1fs6es001g6e1aqnihr4oj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2012/05/28/e9-9d-a2-e7-9a-84-e6-99-ba-e6-85-a7/" data-id="cinjn73xc001l501apqyhw2wv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -455,56 +497,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2011/07/11/311/" data-id="cin1fs6je007t6e1adxbpban5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2011/07/11/311/" data-id="cinjn743k007y501aybbho3ln" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-e4-b8-8e-e7-94-b2-e6-96-b9-e4-b8-80-e6-8a-8a-e6-89-8b-e7-9a-84-e7-94-b5-e6-a2-af-e9-82-82-e9-80-85" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2010/09/08/e4-b8-8e-e7-94-b2-e6-96-b9-e4-b8-80-e6-8a-8a-e6-89-8b-e7-9a-84-e7-94-b5-e6-a2-af-e9-82-82-e9-80-85/" class="article-date">
-  <time datetime="2010-09-08T12:47:38.000Z" itemprop="datePublished">2010-09-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/昔日归档/">昔日归档</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2010/09/08/e4-b8-8e-e7-94-b2-e6-96-b9-e4-b8-80-e6-8a-8a-e6-89-8b-e7-9a-84-e7-94-b5-e6-a2-af-e9-82-82-e9-80-85/">电梯邂逅</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>9月8日，晚上7点，因晚上要加班，在商店买了两盒方便面。在电梯口偶遇甲方厂长，相视1秒后，看他表情面带微笑，并且要说话的样子，我先开口：“X厂长，您好！”他开玩笑说：“怎么吃方便面？”。此时，电梯刚到，我笑着说：“是的，晚上加班”。<br>进了电梯，他按了3楼，我按了6楼后，电梯门反复关了3次没关上，我说：“唉尤，这电梯有问题了”，他说：“不是，因为这个门感应，太敏感”。当我再次按了关门按钮，门关上时，随口应了一句：“恩，确实是这样”。<br>在电梯里，他又说道：”吃方便面阿”（话外之音是说＂小伙子，辛苦了！＂）我继续说到”今天加班，所以要吃方便面”．他点头表示赞赏:”今天还加班”（此时我考虑到，当时穿的是公司的制服，在厂里属于外单位，并且也是第一次谈话，有必要让领导有优先的知情权，这是起码的礼仪），当我感觉他眼神在打量我，我笑着说”呵呵，X厂长我是做MIS的”．他笑了，出了电梯。</p>
-        
-          <p class="article-more-link">
-            <a href="/2010/09/08/e4-b8-8e-e7-94-b2-e6-96-b9-e4-b8-80-e6-8a-8a-e6-89-8b-e7-9a-84-e7-94-b5-e6-a2-af-e9-82-82-e9-80-85/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2010/09/08/e4-b8-8e-e7-94-b2-e6-96-b9-e4-b8-80-e6-8a-8a-e6-89-8b-e7-9a-84-e7-94-b5-e6-a2-af-e9-82-82-e9-80-85/" data-id="cin1fs6ir006s6e1avwpmpfbs" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电梯/">电梯</a></li></ul>
-
     </footer>
   </div>
   
@@ -525,7 +520,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/gis/">gis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ionic/">ionic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails/">rails</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/厨艺/">厨艺</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感想/">感想</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/昔日归档/">昔日归档</a><span class="category-list-count">78</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/gis/">gis</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ionic/">ionic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/rails/">rails</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/厨艺/">厨艺</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感想/">感想</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/昔日归档/">昔日归档</a><span class="category-list-count">78</span></li></ul>
     </div>
   </div>
 
@@ -552,7 +547,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">November 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">July 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">January 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">September 2008</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/08/">August 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">July 2008</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">June 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">May 2008</a><span class="archive-list-count">17</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">July 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">March 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02/">February 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">December 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">November 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">October 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">September 2009</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">July 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">January 2009</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">November 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">October 2008</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">September 2008</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/08/">August 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">July 2008</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">June 2008</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">May 2008</a><span class="archive-list-count">17</span></li></ul>
     </div>
   </div>
 
@@ -562,6 +557,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/04/28/find-closest-network-backend/">实现最短路径查找服务端api</a>
+          </li>
         
           <li>
             <a href="/2016/04/20/rails-ajax-tips/">rails ajax tips</a>
@@ -577,10 +576,6 @@
         
           <li>
             <a href="/2016/03/22/geoserver地图显示图标/">geoserver地图显示图标</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/09/set-hexo-jquery-google-fonts-cdn/">解决hexo的jquery和fonts被墙</a>
           </li>
         
       </ul>
